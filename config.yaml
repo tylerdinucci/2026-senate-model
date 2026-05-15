@@ -50,7 +50,7 @@ race_model:
 
   # Primary uncertainty: extra sigma for unresolved primaries
   primary_extra_sigma:
-    ME: 1.5   # Platner vs Mills — fundamentally different races
+    ME: 0.5   # Platner clear nominee after Mills suspended Apr 30; June 9 primary vs Costello
     MI: 1.5   # Nasty 3-way D primary Aug 4
     TX: 1.5   # Cornyn vs Paxton runoff May 26
     MN: 0.0
@@ -73,8 +73,8 @@ race_model:
 
   # Primary scenario probabilities — update config when primaries resolve
   primary_priors:
-    ME_platner: 0.45
-    ME_mills:   0.55
+    ME_platner: 1.00   # Mills suspended Apr 30 — Platner is clear D nominee
+    ME_mills:   0.00
     TX_paxton:  0.68
     TX_cornyn:  0.32
 
