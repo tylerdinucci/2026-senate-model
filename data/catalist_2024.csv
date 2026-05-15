@@ -1,1 +1,52 @@
-state,abbr,d_margin_2024,notes
+state,abbr,d_margin_2024,n_districts,n_contested,n_uncontested,reliable,notes
+ALASKA,AK,-1.05,1,1,0,True,
+ALABAMA,AL,-17.63,7,4,3,False,3 uncontested districts excluded
+ARKANSAS,AR,-36.12,4,4,0,True,
+ARIZONA,AZ,-4.01,9,9,0,True,
+CALIFORNIA,CA,18.49,52,47,5,False,5 uncontested districts excluded
+COLORADO,CO,12.15,8,8,0,True,
+CONNECTICUT,CT,17.94,5,5,0,True,
+DISTRICT OF COLUMBIA,DC,85.43,1,1,0,True,
+DELAWARE,DE,15.73,1,1,0,True,
+FLORIDA,FL,-15.86,28,27,1,False,1 uncontested districts excluded
+GEORGIA,GA,-5.2,14,14,0,True,
+HAWAII,HI,40.53,2,2,0,True,
+IOWA,IA,-13.03,4,4,0,True,
+IDAHO,ID,-40.71,2,2,0,True,
+ILLINOIS,IL,19.71,17,15,2,False,2 uncontested districts excluded
+INDIANA,IN,-20.39,9,9,0,True,
+KANSAS,KS,-17.5,4,4,0,True,
+KENTUCKY,KY,-24.96,6,4,2,False,2 uncontested districts excluded
+LOUISIANA,LA,-18.27,6,5,1,False,1 uncontested districts excluded
+MASSACHUSETTS,MA,25.91,9,2,7,False,7 uncontested districts excluded
+MARYLAND,MD,29.36,8,8,0,True,
+MAINE,ME,12.26,2,2,0,True,
+MICHIGAN,MI,-1.28,13,13,0,True,
+MINNESOTA,MN,31.94,8,3,5,False,5 uncontested districts excluded
+MISSOURI,MO,-20.64,8,8,0,True,
+MISSISSIPPI,MS,-21.97,4,3,1,False,1 uncontested districts excluded
+MONTANA,MT,-19.2,2,2,0,True,
+NORTH CAROLINA,NC,-1.24,14,12,2,False,2 uncontested districts excluded
+NORTH DAKOTA,ND,,1,0,1,False,All districts uncontested
+NEBRASKA,NE,-27.23,3,3,0,True,
+NEW HAMPSHIRE,NH,7.02,2,2,0,True,
+NEW JERSEY,NJ,7.28,12,12,0,True,
+NEW MEXICO,NM,10.14,3,3,0,True,
+NEVADA,NV,6.09,4,3,1,False,1 uncontested districts excluded
+NEW YORK,NY,17.51,26,26,0,True,
+OHIO,OH,-13.16,15,15,0,True,
+OKLAHOMA,OK,-35.43,5,4,1,False,1 uncontested districts excluded
+OREGON,OR,11.58,6,6,0,True,
+PENNSYLVANIA,PA,-7.45,17,16,1,False,1 uncontested districts excluded
+RHODE ISLAND,RI,23.82,2,2,0,True,
+SOUTH CAROLINA,SC,-20.94,7,7,0,True,
+SOUTH DAKOTA,SD,-44.09,1,1,0,True,
+TENNESSEE,TN,-31.68,9,9,0,True,
+TEXAS,TX,-14.46,38,30,8,False,8 uncontested districts excluded
+UTAH,UT,-31.75,4,4,0,True,
+VIRGINIA,VA,3.8,11,11,0,True,
+VERMONT,VT,,1,0,1,False,All districts uncontested
+WASHINGTON,WA,18.19,10,8,2,False,2 uncontested districts excluded
+WISCONSIN,WI,-2.98,8,8,0,True,
+WEST VIRGINIA,WV,-42.42,2,2,0,True,
+WYOMING,WY,-50.48,1,1,0,True,
