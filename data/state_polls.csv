@@ -1,1 +1,15 @@
 poll_id,state,abbr,d_candidate,r_candidate,d_pct,r_pct,undi_pct,n,pollster,grade,partisan,date_start,date_end,methodology,note
+SEED_NH_01,New Hampshire,NH,Chris Pappas,John Sununu,52.0,43.0,5.0,800,UNH Survey Center,2.8,FALSE,2026-04-01,2026-04-10,LV,Seed poll
+SEED_NC_01,North Carolina,NC,Roy Cooper,Michael Whatley,53.0,44.0,3.0,900,Marist College,2.9,FALSE,2026-04-01,2026-04-15,LV,Seed poll
+SEED_GA_01,Georgia,GA,Jon Ossoff,TBD,51.0,44.0,5.0,800,Marist College,2.9,FALSE,2026-04-01,2026-04-15,LV,Seed poll
+SEED_ME_01,Maine,ME,Platner,Susan Collins,51.0,46.0,3.0,700,PPP,2.2,FALSE,2026-04-01,2026-04-20,LV,Seed poll — Platner matchup
+SEED_ME_02,Maine,ME,Mills,Susan Collins,48.0,47.0,5.0,700,Emerson College,2.5,FALSE,2026-04-01,2026-04-20,LV,Seed poll — Mills matchup
+SEED_MI_01,Michigan,MI,Stevens,Mike Rogers,46.0,47.0,7.0,800,EPIC-MRA,2.5,FALSE,2026-04-01,2026-04-22,LV,Seed poll
+SEED_AK_01,Alaska,AK,Mary Peltola,Dan Sullivan,51.0,46.0,3.0,600,Ivan Moore Research,2.2,FALSE,2026-04-01,2026-04-15,LV,H2H_SULLIVAN
+SEED_OH_01,Ohio,OH,Sherrod Brown,Jon Husted,46.0,48.0,6.0,900,Marist College,2.9,FALSE,2026-04-01,2026-04-15,LV,Seed poll
+SEED_IA_01,Iowa,IA,Josh Turek,Ashley Hinson,47.0,48.0,5.0,700,Iowa State Civiqs,2.3,FALSE,2026-04-01,2026-04-20,LV,Seed poll
+SEED_TX_01,Texas,TX,James Talarico,John Cornyn,47.0,44.0,9.0,1018,TPOR Slingshot,1.8,FALSE,2026-04-17,2026-04-29,LV,Cornyn matchup
+SEED_TX_02,Texas,TX,James Talarico,Ken Paxton,48.0,41.0,11.0,1018,TPOR Slingshot,1.8,FALSE,2026-04-17,2026-04-29,LV,Paxton matchup
+SEED_NE_01,Nebraska,NE,Dan Osborn,Pete Ricketts,47.0,48.0,5.0,600,Emerson College,2.5,FALSE,2026-04-01,2026-04-05,LV,Seed poll — Osborn D-equivalent
+SEED_FL_01,Florida,FL,Alex Vindman,Ashley Moody,44.0,51.0,5.0,800,St Pete Polls,2.3,FALSE,2026-04-01,2026-04-10,LV,Seed poll
+SEED_MN_01,Minnesota,MN,Craig,Michele Tafoya,50.0,45.0,5.0,800,Star Tribune MPR,2.8,FALSE,2026-04-01,2026-04-15,LV,Seed poll

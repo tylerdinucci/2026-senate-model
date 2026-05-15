@@ -1,1 +1,51 @@
-state,abbr,white_nc,white_college,hispanic,black,aapi,other
+state,abbr,white_nc,white_college,hispanic,black,aapi,other,notes
+Alabama,AL,0.558,0.172,0.021,0.225,0.010,0.014,
+Alaska,AK,0.438,0.191,0.068,0.034,0.060,0.209,
+Arizona,AZ,0.436,0.222,0.189,0.042,0.028,0.083,
+Arkansas,AR,0.596,0.177,0.044,0.152,0.010,0.021,
+California,CA,0.262,0.220,0.264,0.057,0.150,0.047,
+Colorado,CO,0.476,0.287,0.155,0.038,0.026,0.018,
+Connecticut,CT,0.455,0.260,0.121,0.094,0.035,0.035,placeholder
+Delaware,DE,0.476,0.216,0.071,0.176,0.031,0.030,placeholder
+Florida,FL,0.420,0.194,0.208,0.143,0.028,0.007,
+Georgia,GA,0.388,0.169,0.063,0.290,0.034,0.056,
+Hawaii,HI,0.112,0.143,0.082,0.022,0.545,0.096,
+Idaho,ID,0.668,0.221,0.088,0.006,0.008,0.009,
+Illinois,IL,0.399,0.242,0.146,0.137,0.052,0.024,placeholder
+Indiana,IN,0.597,0.211,0.062,0.085,0.019,0.026,placeholder
+Iowa,IA,0.610,0.278,0.044,0.030,0.017,0.021,
+Kansas,KS,0.546,0.242,0.106,0.055,0.023,0.028,placeholder
+Kentucky,KY,0.640,0.210,0.037,0.082,0.013,0.018,
+Louisiana,LA,0.477,0.176,0.028,0.297,0.014,0.008,placeholder
+Maine,ME,0.645,0.296,0.018,0.016,0.009,0.016,
+Maryland,MD,0.307,0.244,0.070,0.285,0.059,0.035,placeholder
+Massachusetts,MA,0.414,0.319,0.095,0.069,0.060,0.043,placeholder
+Michigan,MI,0.537,0.240,0.041,0.130,0.023,0.029,
+Minnesota,MN,0.544,0.282,0.043,0.068,0.042,0.021,
+Mississippi,MS,0.432,0.155,0.018,0.371,0.008,0.016,placeholder
+Missouri,MO,0.595,0.219,0.040,0.116,0.020,0.010,placeholder
+Montana,MT,0.681,0.218,0.030,0.004,0.007,0.060,
+Nebraska,NE,0.573,0.263,0.097,0.044,0.019,0.004,
+Nevada,NV,0.380,0.208,0.240,0.090,0.070,0.012,
+New Hampshire,NH,0.627,0.293,0.037,0.016,0.024,0.003,
+New Jersey,NJ,0.343,0.251,0.167,0.121,0.081,0.037,placeholder
+New Mexico,NM,0.298,0.193,0.393,0.019,0.012,0.085,
+New York,NY,0.331,0.246,0.162,0.140,0.077,0.044,placeholder
+North Carolina,NC,0.467,0.207,0.059,0.210,0.023,0.034,
+North Dakota,ND,0.658,0.215,0.023,0.008,0.008,0.088,
+Ohio,OH,0.558,0.251,0.033,0.115,0.017,0.026,
+Oklahoma,OK,0.560,0.211,0.087,0.069,0.018,0.055,
+Oregon,OR,0.540,0.279,0.113,0.023,0.044,0.001,placeholder
+Pennsylvania,PA,0.527,0.234,0.081,0.100,0.032,0.026,placeholder
+Rhode Island,RI,0.468,0.275,0.144,0.059,0.034,0.020,placeholder
+South Carolina,SC,0.498,0.179,0.032,0.255,0.013,0.023,placeholder
+South Dakota,SD,0.628,0.210,0.024,0.009,0.009,0.120,
+Tennessee,TN,0.565,0.203,0.042,0.149,0.017,0.024,placeholder
+Texas,TX,0.347,0.176,0.201,0.129,0.050,0.097,
+Utah,UT,0.601,0.269,0.097,0.010,0.018,0.005,
+Vermont,VT,0.635,0.294,0.020,0.013,0.016,0.022,placeholder
+Virginia,VA,0.410,0.253,0.091,0.167,0.055,0.024,placeholder
+Washington,WA,0.468,0.282,0.110,0.038,0.075,0.027,placeholder
+West Virginia,WV,0.712,0.195,0.017,0.042,0.009,0.025,placeholder
+Wisconsin,WI,0.575,0.267,0.055,0.058,0.020,0.025,placeholder
+Wyoming,WY,0.693,0.216,0.064,0.007,0.006,0.014,

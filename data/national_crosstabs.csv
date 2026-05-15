@@ -1,1 +1,9 @@
 entry_id,pollster,grade,date_start,date_end,n,group,metric,value,note
+1,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,white_nc,gcb_d_share,0.431,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
+2,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,white_college,gcb_d_share,0.586,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
+3,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,hispanic,gcb_d_share,0.570,Blended estimate — Echelon excluded
+4,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,black,gcb_d_share,0.816,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
+5,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,aapi,gcb_d_share,0.667,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
+6,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,youth_18_29,gcb_d_share,0.595,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
+7,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,seniors_65p,gcb_d_share,0.515,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
+8,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,total,gcb_d_share,0.525,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
