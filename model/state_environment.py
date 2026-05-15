@@ -41,12 +41,20 @@ def compute_state_environments(oop_result, demo_shifts, config,
 
     acs_groups = ['white_nc', 'white_college', 'hispanic', 'black', 'aapi', 'other']
 
+    # State-level overrides for unrepresentative MIT House baselines
+    catalist_overrides = config.get('catalist_state_overrides', {})
+
     results = {}
 
     for _, cat_row in catalist.iterrows():
         abbr = cat_row['abbr']
         baseline = cat_row['d_margin_2024']
         reliable = cat_row.get('reliable', True)
+
+        # Apply override if configured (replaces MIT House margin entirely)
+        if abbr in catalist_overrides:
+            baseline = catalist_overrides[abbr]
+            reliable = True
 
         if pd.isna(baseline):
             # State had all-uncontested races — can't use

@@ -18,6 +18,17 @@ oop:
     - [2018, +0.8]   # D OOP. Anti-Trump.
     - [2022, +0.4]   # R OOP. Dobbs softened wave.
 
+# ── LAYER 2: CATALIST STATE OVERRIDES ─────────────────────────────────────────
+# For states where the MIT House data is unrepresentative (single at-large seat,
+# all-uncontested, or H2H race that diverges from statewide lean), override
+# the catalist baseline with the actual 2024 presidential/statewide margin.
+# AK: Peltola won 1 contested at-large seat (-1.05), but Trump won AK by ~8.
+# VT/ND: all uncontested (no MIT margin computed).
+catalist_state_overrides:
+  AK: -9.1    # 2-cycle avg (2020: -10.1, 2024: -8.1); Peltola House result not a state baseline
+  VT: +32.1   # all uncontested House seats; use statewide estimate
+  ND: -37.1   # all uncontested House seats; use statewide estimate
+
 # ── LAYER 2: CATALIST 2024 BASELINES ──────────────────────────────────────────
 # DO NOT EDIT. These are 2024 actuals. Fixed anchor for all shift calculations.
 # New poll data goes into data/national_crosstabs.csv — not here.
@@ -77,6 +88,20 @@ race_model:
     ME_mills:   0.00
     TX_paxton:  0.68
     TX_cornyn:  0.32
+
+  # Component weights by poll count bucket.
+  # war + fund must sum to < 1.0; remainder is split env/poll by blending module.
+  weights:
+    n_0:                      # no polls yet — almost all env
+      war:  0.15
+      fund: 0.05
+    n_1_to_4:                 # thin polling — env still dominant
+      war:  0.12
+      fund: 0.04
+    n_gte_5:                  # well-polled — polls get meaningful share
+      war:  0.10
+      fund: 0.03
+    state_weight_overrides: {}  # per-state overrides added as needed
 
   # Dynamic blending: environment weight decays with time AND poll count
   blending:
