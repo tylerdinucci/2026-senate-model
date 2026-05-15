@@ -1,0 +1,117 @@
+# ── MODEL METADATA ─────────────────────────────────────────────────────────────
+model_version: "v1"
+election_date: "2026-11-03"
+
+# ── LAYER 1: OOP SHIFT ─────────────────────────────────────────────────────────
+oop:
+  half_life_years: 12
+  gcb_tracker_uncertainty: 1.50
+  # All midterm OOP cycles excluding 2002 (9/11 anomaly — structural outlier).
+  # Shift = how much GCB moved toward the OOP party from April to November.
+  # Direction-adjusted: positive = OOP party gained.
+  cycles:
+    - [1994, +4.4]   # R OOP. Gingrich/Contract with America.
+    - [1998, -1.3]   # R OOP. Impeachment backlash — OOP lost ground.
+    - [2006, +1.9]   # D OOP. Iraq/Katrina.
+    - [2010, +3.6]   # R OOP. Tea Party wave.
+    - [2014, +3.0]   # R OOP. Obama 2nd term drag.
+    - [2018, +0.8]   # D OOP. Anti-Trump.
+    - [2022, +0.4]   # R OOP. Dobbs softened wave.
+
+# ── LAYER 2: CATALIST 2024 BASELINES ──────────────────────────────────────────
+# DO NOT EDIT. These are 2024 actuals. Fixed anchor for all shift calculations.
+# New poll data goes into data/national_crosstabs.csv — not here.
+catalist_2024:
+  national_gcb: -3.06         # 2024 House popular vote D margin — R won
+  group_d_share:              # D vote share by group, 2024 actual
+    white_nc:      0.360
+    white_college: 0.502
+    hispanic:      0.571
+    black:         0.858
+    aapi:          0.616
+    youth_18_29:   0.538
+    seniors_65p:   0.478
+    total:         0.506
+
+# ── LAYER 2: TURNOUT RATIOS (for ACS CVAP → electorate conversion) ─────────────
+turnout_ratios:
+  white:    1.115
+  black:    0.905
+  hispanic: 0.660
+  aapi:     0.900
+  other:    0.750
+
+# ── LAYER 3: RACE MODEL ────────────────────────────────────────────────────────
+race_model:
+
+  # Time sigma: residual uncertainty at 193 days out.
+  # Decays: sigma_time = base × sqrt(days_remaining / 193)
+  time_sigma_base: 3.50
+
+  # Primary uncertainty: extra sigma for unresolved primaries
+  primary_extra_sigma:
+    ME: 1.5   # Platner vs Mills — fundamentally different races
+    MI: 1.5   # Nasty 3-way D primary Aug 4
+    TX: 1.5   # Cornyn vs Paxton runoff May 26
+    MN: 0.0
+
+  # WAR adjustments — adjusted values with haircuts applied
+  # d = D candidate adjustment, r = R candidate adjustment (positive = favors R)
+  war:
+    NC: {d: +3.0, r:  0.0}   # Cooper — governor race proxy
+    GA: {d: +3.5, r:  0.0}   # Ossoff — Jan 5 runoff haircut applied
+    ME: {d:  0.0, r: +10.0}  # Collins — polarization compression applied
+    AK: {d: +3.0, r:  +1.5}  # Peltola — House vs Palin RCV haircut applied
+    OH: {d: +4.0, r:  0.0}   # Brown — most consistent overperformer
+    IA: {d:  0.0, r:  +2.0}  # Hinson — partial statewide credit
+    TX: {d:  0.0, r:  -1.4}  # probability-weighted Cornyn/Paxton
+    NE: {d: +8.0, r:  0.0}   # Osborn personal brand
+    NH: {d:  0.0, r:  -1.0}
+    MN: {d: +1.5, r:  -1.0}
+    MI: {d:  0.0, r:  0.0}
+    FL: {d:  0.0, r:  0.0}
+
+  # Primary scenario probabilities — update config when primaries resolve
+  primary_priors:
+    ME_platner: 0.45
+    ME_mills:   0.55
+    TX_paxton:  0.68
+    TX_cornyn:  0.32
+
+  # Dynamic blending: environment weight decays with time AND poll count
+  blending:
+    base_env_weight:  0.80   # env weight at day 193 with 0 polls
+    poll_threshold:   10     # polls where env/poll weight roughly equalizes
+    time_decay_power: 0.50   # sqrt decay
+    state_overrides:
+      AK: {base_env_weight: 0.55}
+      TX: {base_env_weight: 0.60}
+      NE: {base_env_weight: 0.65}
+
+# ── MONTE CARLO ─────────────────────────────────────────────────────────────────
+simulation:
+  n_sims: 100000
+  seed: 42
+  d_seats_not_up: 34
+  majority_threshold: 51
+  national_baseline_correlation: 0.65
+  correlations:
+    - {states: [MI, OH], value: 0.82}
+    - {states: [MI, MN], value: 0.78}
+    - {states: [MI, IA], value: 0.75}
+    - {states: [MI, NE], value: 0.68}
+    - {states: [OH, MN], value: 0.75}
+    - {states: [OH, IA], value: 0.78}
+    - {states: [OH, NE], value: 0.70}
+    - {states: [MN, IA], value: 0.80}
+    - {states: [MN, NE], value: 0.72}
+    - {states: [IA, NE], value: 0.78}
+    - {states: [ME, NH], value: 0.85}
+    - {states: [GA, NC], value: 0.80}
+    - {states: [GA, FL], value: 0.68}
+    - {states: [NC, FL], value: 0.65}
+    - {states: [AK, ME], value: 0.55}
+    - {states: [AK, NH], value: 0.52}
+    - {states: [TX, FL], value: 0.60}
+    - {states: [TX, GA], value: 0.58}
+    - {states: [TX, NC], value: 0.55}
