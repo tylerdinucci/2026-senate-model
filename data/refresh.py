@@ -101,52 +101,82 @@ def refresh_senate_polls():
     else:
         print(f"  No new polls (existing: {len(existing)})")
 
+# Pollster grade map for GCB weighting — mirrors our crosstab grade scheme (0–3 scale).
+# Unknown pollsters default to 1.5.
+GCB_POLLSTER_GRADES = {
+    'The New York Times/Siena College': 3.0,
+    'Marist University':                2.9,
+    'Marist College':                   2.9,
+    'Quinnipiac University':            2.8,
+    'CNN/SSRS':                         2.8,
+    'YouGov':                           2.7,
+    'Public Religion Research Institute': 2.6,
+    'Ipsos':                            2.5,
+    'Emerson College':                  2.5,
+    'AtlasIntel':                       2.4,
+    'Focaldata':                        2.4,
+    'Morning Consult':                  2.3,
+    'Public Opinion Strategies':        2.2,
+    'HarrisX':                          2.2,
+    'Cygnal':                           2.2,
+    'Echelon Insights':                 2.0,
+    'RMG Research':                     2.0,
+    'Rasmussen Reports':                1.8,
+    'McLaughlin & Associates':          1.5,
+}
+
+GCB_RECENCY_HALF_LIFE = 30   # days
+GCB_CUTOFF_DAYS       = 60   # ignore polls older than this
+
+
 # ── SILVER BULLETIN GCB ────────────────────────────────────────────────────────
 def refresh_gcb():
     print("Fetching Silver Bulletin GCB data...")
     resp = requests.get(GCB_CSV_URL, timeout=30)
     resp.raise_for_status()
 
+    import numpy as np
+
     raw = pd.read_csv(io.StringIO(resp.text), low_memory=False)
-
-    # Get the most recent poll date and the influence-weighted average
-    # Columns: subgroup, pollster, startdate, enddate, samplesize,
-    #          dem, rep, net, adjusted_net, influence, modeldate
-
-    # Filter to "All polls" subgroup only
     df = raw[raw['subgroup'] == 'All polls'].copy()
     df['enddate'] = pd.to_datetime(df['enddate'], errors='coerce')
-    df = df.dropna(subset=['enddate', 'net'])
+    df = df.dropna(subset=['enddate', 'adjusted_net'])
 
-    # Get model date (Silver's current average date)
-    model_date = df['modeldate'].iloc[0] if len(df) > 0 else str(date.today())
+    today = date.today()
+    df['days_ago'] = (pd.Timestamp(today) - df['enddate']).dt.days
+    df = df[df['days_ago'] <= GCB_CUTOFF_DAYS]
 
-    # Compute influence-weighted average (this is Silver's tracker number)
-    total_influence = df['influence'].sum()
-    if total_influence > 0:
-        weighted_net = (df['net'] * df['influence']).sum() / total_influence
-    else:
-        weighted_net = df['net'].mean()
+    if len(df) == 0:
+        print("  No polls within cutoff window — GCB unchanged")
+        return
+
+    df['recency_w'] = np.exp(-df['days_ago'] * np.log(2) / GCB_RECENCY_HALF_LIFE)
+    df['grade_w']   = df['pollster'].map(GCB_POLLSTER_GRADES).fillna(1.5)
+    df['combined_w'] = df['recency_w'] * df['grade_w']
+
+    weighted_net = (df['adjusted_net'] * df['combined_w']).sum() / df['combined_w'].sum()
+    model_date   = raw['modeldate'].iloc[0] if len(raw) > 0 else str(today)
 
     # Load existing and check if we already have today's reading
-    existing = pd.read_csv('data/gcb_national.csv')
-    today_str = str(date.today())
+    existing  = pd.read_csv('data/gcb_national.csv')
+    today_str = str(today)
 
     if today_str in existing['date'].values:
-        print(f"  Already have GCB reading for {today_str}: D{existing[existing['date']==today_str]['gcb_d_net'].iloc[0]:+.2f}")
+        print(f"  Already have GCB reading for {today_str}: "
+              f"D{existing[existing['date']==today_str]['gcb_d_net'].iloc[0]:+.2f}")
         return
 
     new_row = pd.DataFrame([{
-        'date': today_str,
+        'date':      today_str,
         'gcb_d_net': round(weighted_net, 2),
-        'source': 'Silver Bulletin GCB tracker (influence-weighted)',
-        'note': f'Model date: {model_date} | {len(df)} polls in database'
+        'source':    'Silver Bulletin GCB CSV — adjusted_net × grade × recency (30d half-life, 60d window)',
+        'note':      f'Model date: {model_date} | n={len(df)} polls in window',
     }])
 
     updated = pd.concat([existing, new_row], ignore_index=True)
     updated.to_csv('data/gcb_national.csv', index=False)
-    print(f"  GCB updated: D{weighted_net:+.2f} ({today_str})")
-    print(f"  Total polls in Silver database: {len(df)}")
+    print(f"  GCB updated: D{weighted_net:+.2f} ({today_str})  "
+          f"[n={len(df)}, window={GCB_CUTOFF_DAYS}d, half-life={GCB_RECENCY_HALF_LIFE}d]")
 
 # ── MAIN ───────────────────────────────────────────────────────────────────────
 if __name__ == '__main__':

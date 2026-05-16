@@ -57,7 +57,7 @@ race_model:
 
   # Time sigma: residual uncertainty at 193 days out.
   # Decays: sigma_time = base × sqrt(days_remaining / 193)
-  time_sigma_base: 3.50
+  time_sigma_base: 4.50
 
   # Primary uncertainty: extra sigma for unresolved primaries
   primary_extra_sigma:
