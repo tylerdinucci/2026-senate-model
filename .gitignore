@@ -1,1 +1,4 @@
 __pycache__/
+outputs/charts_*/
+outputs/*.xlsx
+outputs/*.json
