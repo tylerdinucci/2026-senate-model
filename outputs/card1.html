@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2026 Senate Model — Card 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width:1200px; height:700px;
+  font-family:'Inter',system-ui,sans-serif;
+  background:#f1f5f9; color:#0f172a; overflow:hidden;
+}
+
+/* HEADER */
+.hdr {
+  height:48px; background:#fff; border-bottom:2px solid #e2e8f0;
+  display:flex; align-items:center; justify-content:space-between; padding:0 28px;
+}
+.dot { width:8px; height:8px; border-radius:50%; background:#22c55e; box-shadow:0 0 0 3px #dcfce7; }
+.hdr-l { display:flex; align-items:center; gap:10px; }
+.hdr-title { font-size:12px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:#475569; }
+.hdr-title em { color:#1e40af; font-style:normal; }
+.hdr-r { font-size:11px; color:#94a3b8; font-weight:500; }
+
+/* 2-column body */
+.body { height:652px; display:grid; grid-template-columns:290px 1px 1fr; background:#f1f5f9; }
+.vl { background:#e2e8f0; }
+
+/* ── LEFT ── */
+.left {
+  background:#fff; padding:16px 18px 14px;
+  display:flex; flex-direction:column; gap:0;
+}
+
+.prob-lbl { font-size:9px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:#94a3b8; }
+.prob-num { font-size:100px; font-weight:900; line-height:0.85; color:#1e40af; letter-spacing:-5px; margin-top:2px; }
+.prob-num span { font-size:42px; letter-spacing:-1px; }
+.prob-sub { font-size:12px; font-weight:500; color:#64748b; margin-top:5px; line-height:1.4; }
+.prob-sub strong { color:#1e40af; }
+
+.rule { height:1px; background:#f1f5f9; margin:10px 0; flex-shrink:0; }
+
+.stats { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.sbox { background:#f8fafc; border:1px solid #e2e8f0; border-radius:7px; padding:8px 10px; }
+.slbl { font-size:8px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#94a3b8; margin-bottom:3px; }
+.sval { font-size:22px; font-weight:800; line-height:1; }
+.sval.b { color:#1e40af; }
+.sval.d { color:#475569; font-size:18px; }
+
+.rule2 { height:1px; background:#f1f5f9; margin:10px 0; flex-shrink:0; }
+
+/* seat bar */
+.sblbl { font-size:8px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#94a3b8; margin-bottom:6px; }
+.sbouter { height:26px; border-radius:5px; overflow:hidden; display:flex; border:1px solid #e2e8f0; }
+.sbd { background:#1e40af; display:flex; align-items:center; justify-content:flex-end; padding-right:8px; }
+.sbr { background:#dc2626; display:flex; align-items:center; padding-left:8px; }
+.sbtxt { font-size:11px; font-weight:800; color:#fff; }
+.sbnums { display:flex; justify-content:space-between; margin-top:4px; }
+.sbn { font-size:20px; font-weight:800; }
+.sbn.d { color:#1e40af; }
+.sbn.r { color:#dc2626; }
+.sbsub { font-size:8px; color:#94a3b8; margin-top:1px; }
+.sbmid { font-size:8.5px; color:#94a3b8; text-align:center; padding-top:4px; }
+
+.rule3 { height:1px; background:#f1f5f9; margin:10px 0; flex-shrink:0; }
+
+/* GCB */
+.gcb {
+  background:#f8fafc; border:1px solid #e2e8f0; border-radius:7px;
+  padding:8px 12px; display:flex; align-items:center; justify-content:space-between;
+}
+.gl { font-size:8px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#94a3b8; margin-bottom:3px; }
+.gv { font-size:18px; font-weight:800; color:#1e40af; }
+.garrow { color:#cbd5e1; font-size:14px; }
+
+.rule4 { height:1px; background:#f1f5f9; margin:10px 0; flex-shrink:0; }
+
+/* distribution */
+.distlbl { font-size:8px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#94a3b8; margin-bottom:6px; }
+.distbars { display:flex; align-items:flex-end; gap:2px; flex:1; }
+.dc { display:flex; flex-direction:column; align-items:center; flex:1; gap:1px; }
+.dcpct { font-size:6.5px; color:#64748b; font-weight:700; height:12px; display:flex; align-items:flex-end; }
+.dcbar { width:100%; border-radius:2px 2px 0 0; }
+.dclbl { font-size:7px; font-weight:600; margin-top:2px; text-align:center; }
+
+/* ── RIGHT ── */
+.right {
+  background:#fff; padding:14px 20px;
+  display:flex; flex-direction:column;
+}
+.rlbl { font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#94a3b8; }
+
+.races { display:grid; grid-template-columns:1fr 1fr; gap:0 16px; flex:1; }
+
+.race {
+  display:grid; grid-template-columns:52px 96px 1fr 54px;
+  align-items:center; gap:8px;
+  border-bottom:1px solid #f1f5f9;
+}
+.rstate-code { font-size:19px; font-weight:800; color:#0f172a; line-height:1; }
+.rstate-mg { font-size:10px; font-weight:600; color:#94a3b8; margin-top:1px; }
+.rrat { font-size:9px; font-weight:700; padding:4px 7px; border-radius:4px; text-align:center; white-space:nowrap; }
+.sd { background:#dbeafe; color:#1e40af; }
+.ld { background:#e0f2fe; color:#0369a1; }
+.kd { background:#d1fae5; color:#065f46; }
+.tu { background:#fef3c7; color:#92400e; }
+.kr { background:#fee2e2; color:#991b1b; }
+.lr { background:#fde8d8; color:#9a3412; }
+.sr { background:#fef2f2; color:#7f1d1d; }
+
+.pbar { height:18px; background:#f1f5f9; border-radius:3px; overflow:hidden; position:relative; }
+.pbf  { height:100%; border-radius:3px 0 0 3px; }
+.pbm  { position:absolute; top:0; bottom:0; left:50%; width:1px; background:#e2e8f0; }
+.rprob { font-size:14px; font-weight:800; text-align:right; white-space:nowrap; }
+.rprob.d { color:#1e40af; }
+.rprob.r { color:#dc2626; }
+.rprob.t { color:#b45309; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-l">
+    <div class="dot"></div>
+    <div class="hdr-title">🗳 <em>2026 Senate Model</em> &nbsp;·&nbsp; v1</div>
+  </div>
+  <div class="hdr-r">May 20, 2026 &nbsp;·&nbsp; 167 days to Election Day &nbsp;·&nbsp; 100k simulations</div>
+</div>
+
+<div class="body">
+
+  <!-- LEFT PANEL -->
+  <div class="left">
+
+    <div>
+      <div class="prob-lbl">D Majority Probability</div>
+      <div class="prob-num">51<span>.4%</span></div>
+      <div class="prob-sub"><strong>Slight D edge</strong> — Senate control near coin flip</div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="stats">
+      <div class="sbox"><div class="slbl">Expected D seats</div><div class="sval b">51.4</div></div>
+      <div class="sbox"><div class="slbl">50-seat tie odds</div><div class="sval d">8.8%</div></div>
+      <div class="sbox"><div class="slbl">90% interval</div><div class="sval d">47–58</div></div>
+      <div class="sbox"><div class="slbl">D seats not up</div><div class="sval d">32</div></div>
+    </div>
+
+    <div class="rule2"></div>
+
+    <div>
+      <div class="sblbl">Projected seat split</div>
+      <div class="sbouter">
+        <div class="sbd" style="width:51.5%"><span class="sbtxt">D</span></div>
+        <div class="sbr" style="width:48.5%"><span class="sbtxt">R</span></div>
+      </div>
+      <div class="sbnums">
+        <div><div class="sbn d">~52</div><div class="sbsub">Dem seats</div></div>
+        <div><div class="sbmid">← 51 = majority</div></div>
+        <div style="text-align:right"><div class="sbn r">~48</div><div class="sbsub">Rep seats</div></div>
+      </div>
+    </div>
+
+    <div class="rule3"></div>
+
+    <div class="gcb">
+      <div><div class="gl">GCB Today</div><div class="gv">D +6.2</div></div>
+      <div class="garrow">→</div>
+      <div style="text-align:right"><div class="gl">Proj. Election Day</div><div class="gv">D +7.8</div></div>
+    </div>
+
+    <div class="rule4"></div>
+
+    <div style="display:flex;flex-direction:column;flex:1;min-height:0">
+      <div class="distlbl">Seat outcome distribution</div>
+      <div class="distbars" id="dbars"></div>
+      <div style="display:flex;gap:2px;margin-top:2px" id="dlbls"></div>
+    </div>
+
+  </div>
+
+  <div class="vl"></div>
+
+  <!-- RIGHT PANEL: Competitive Races -->
+  <div class="right">
+    <div class="rlbl" style="margin-bottom:8px">Competitive races &nbsp;·&nbsp; D win probability</div>
+    <div class="races" id="races-grid"></div>
+  </div>
+
+</div>
+
+<script>
+// ── Distribution chart ──
+const dist = {
+  46:1.59, 47:15.72, 48:13.61, 49:9.95, 50:8.81,
+  51:7.46, 52:6.90, 53:6.75, 54:5.60, 55:4.59,
+  56:3.97, 57:3.48, 58:3.36, 59:3.57, 60:4.55
+};
+const seats = Object.keys(dist).map(Number);
+const vals  = Object.values(dist);
+const maxV  = Math.max(...vals);
+const wrap  = document.getElementById('dbars');
+const lbls  = document.getElementById('dlbls');
+
+seats.forEach((s, i) => {
+  const pct = vals[i];
+  const h   = Math.max(3, (pct / maxV) * 90);
+  const color = s >= 51 ? '#1e40af' : s === 50 ? '#d97706' : '#dc2626';
+  const op    = s < 51 ? 0.7 : 0.9;
+  const show  = pct >= 5.5 ? pct.toFixed(1) + '%' : '';
+
+  const col = document.createElement('div');
+  col.className = 'dc';
+  col.innerHTML = `<div class="dcpct">${show}</div><div class="dcbar" style="height:${h}px;background:${color};opacity:${op}"></div>`;
+  wrap.appendChild(col);
+
+  const lbl = document.createElement('div');
+  lbl.className = 'dclbl';
+  lbl.style.flex = '1';
+  lbl.style.color = s === 50 ? '#b45309' : s < 51 ? '#ef4444' : '#94a3b8';
+  lbl.style.fontWeight = (s === 50 || s === 51) ? '700' : '500';
+  lbl.textContent = s === 50 ? '50★' : String(s);
+  lbls.appendChild(lbl);
+});
+
+// ── Competitive races ──
+const races = [
+  ['ME', 'sd', 'Safe D',    98.3, '#1e40af', +9.4],
+  ['OH', 'kr', 'Lean R',    35.1, '#dc2626', -1.7],
+  ['NH', 'sd', 'Safe D',    97.0, '#1e40af', +8.3],
+  ['FL', 'lr', 'Likely R',  15.7, '#b45309', -4.5],
+  ['NC', 'sd', 'Safe D',    95.8, '#1e40af', +7.6],
+  ['KS', 'lr', 'Likely R',  14.4, '#b45309', -4.8],
+  ['GA', 'ld', 'Likely D',  89.4, '#0369a1', +5.5],
+  ['NE', 'lr', 'Likely R',  10.9, '#b45309', -5.6],
+  ['MI', 'kd', 'Lean D',    68.1, '#065f46', +2.2],
+  ['SC', 'lr', 'Likely R',   9.9, '#b45309', -5.9],
+  ['TX', 'tu', 'Tossup',    57.2, '#b45309', +0.8],
+  ['MS', 'sr', 'Safe R',     5.4, '#991b1b', -7.3],
+  ['AK', 'kd', 'Lean D',    63.6, '#065f46', +1.5],
+  ['IA', 'kr', 'Lean R',    37.8, '#dc2626', -1.4],
+];
+
+const grid = document.getElementById('races-grid');
+// 14 races in 2 cols = 7 rows; available height: 652 - 30 (label) = 622px; per row = 622/7 ≈ 88px
+const rowH = Math.floor((652 - 30) / 7);
+
+races.forEach(([state, cls, label, prob, color, central]) => {
+  const sign = central >= 0 ? '+' : '';
+  const probClass = cls === 'tu' ? 't' : (prob >= 50 ? 'd' : 'r');
+  const row = document.createElement('div');
+  row.className = 'race';
+  row.style.height = rowH + 'px';
+  row.innerHTML = `
+    <div>
+      <div class="rstate-code">${state}</div>
+      <div class="rstate-mg">${sign}${central.toFixed(1)}</div>
+    </div>
+    <div class="rrat ${cls}">${label}</div>
+    <div class="pbar">
+      <div class="pbf" style="width:${prob}%;background:${color}"></div>
+      <div class="pbm"></div>
+    </div>
+    <div class="rprob ${probClass}">${prob.toFixed(1)}%</div>
+  `;
+  grid.appendChild(row);
+});
+
+// remove border-bottom from last row in each column
+const rows = grid.querySelectorAll('.race');
+rows[rows.length - 1].style.borderBottom = 'none';
+rows[rows.length - 2].style.borderBottom = 'none';
+</script>
+</body>
+</html>

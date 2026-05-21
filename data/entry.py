@@ -56,9 +56,10 @@ def add_state_poll(config):
         print("Cancelled.")
         return
 
-    df = pd.read_csv('data/state_polls.csv')
-    df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
-    df.to_csv('data/state_polls.csv', index=False)
+    df = pd.read_csv('data/state_polls.csv')  # still needed for blend preview below
+    pd.DataFrame([new_row]).to_csv('data/state_polls.csv',
+                                   mode='a', header=False, index=False)
+    df = pd.read_csv('data/state_polls.csv')  # reload for blend preview
 
     # Show updated blend for this state
     from model.poll_blend import compute_poll_blend
@@ -68,7 +69,7 @@ def add_state_poll(config):
     run = input("Run full model now? (y/n): ").strip().lower()
     if run == 'y':
         import subprocess
-        subprocess.run(['python', 'run.py', '--quick'])
+        subprocess.run([sys.executable, 'run.py', '--quick'])
 
 # ── ADD DEMOGRAPHIC CROSSTAB ───────────────────────────────────────────────────
 def add_crosstab(config):
@@ -138,9 +139,8 @@ def add_crosstab(config):
         print("Cancelled.")
         return
 
-    df = pd.read_csv('data/national_crosstabs.csv')
-    df = pd.concat([df, pd.DataFrame(new_rows)], ignore_index=True)
-    df.to_csv('data/national_crosstabs.csv', index=False)
+    pd.DataFrame(new_rows).to_csv('data/national_crosstabs.csv',
+                                  mode='a', header=False, index=False)
 
     print(f"\n{len(new_rows)} crosstab entries added.")
 
@@ -157,4 +157,4 @@ def add_crosstab(config):
     run = input("\nRun full model now? (y/n): ").strip().lower()
     if run == 'y':
         import subprocess
-        subprocess.run(['python', 'run.py', '--quick'])
+        subprocess.run([sys.executable, 'run.py', '--quick'])

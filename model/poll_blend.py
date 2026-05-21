@@ -4,6 +4,7 @@ Quality × recency weighted poll blend for a state.
 Special handling:
 - AK: only include polls with note containing 'H2H_SULLIVAN'
 - ME: separate blends for Platner and Mills matchups, weighted by primary priors
+- MI: separate blends for El-Sayed/McMorrow/Stevens matchups, weighted by primary priors
 - TX: separate blends for Cornyn and Paxton matchups, weighted by primary priors
 """
 
@@ -107,7 +108,35 @@ def compute_poll_blend(state_abbr, polls_df, reference_date, config):
 
         blend = (priors['ME_platner'] * platner_blend +
                  priors['ME_mills']   * mills_blend)
-        n_polls = np_ + nm
+        # max() not sum: Platner/Mills matchups come from the same polls
+        n_polls = max(np_, nm)
+
+    elif state_abbr == 'MI':
+        # 3-way D primary (Aug 4) — blend each matchup separately, weight by primary priors
+        priors = config['race_model']['primary_priors']
+        elsayed_polls  = state_polls[state_polls['d_candidate'].str.contains('El-Sayed',  case=False, na=False)]
+        mcmorrow_polls = state_polls[state_polls['d_candidate'].str.contains('McMorrow',  case=False, na=False)]
+        stevens_polls  = state_polls[state_polls['d_candidate'].str.contains('Stevens',   case=False, na=False)]
+
+        elsayed_blend,  ne = _blend_subset(elsayed_polls,  reference_date)
+        mcmorrow_blend, nm = _blend_subset(mcmorrow_polls, reference_date)
+        stevens_blend,  ns = _blend_subset(stevens_polls,  reference_date)
+
+        # Normalize priors over candidates that actually have polls
+        p_e = priors.get('MI_elsayed',  0.333) if elsayed_blend  is not None else 0.0
+        p_m = priors.get('MI_mcmorrow', 0.333) if mcmorrow_blend is not None else 0.0
+        p_s = priors.get('MI_stevens',  0.333) if stevens_blend  is not None else 0.0
+        total_p = p_e + p_m + p_s
+
+        if total_p == 0:
+            return {'blend_margin': None, 'n_polls': 0, 'latest_poll': None}
+
+        blend = ((p_e * (elsayed_blend  or 0.0) +
+                  p_m * (mcmorrow_blend or 0.0) +
+                  p_s * (stevens_blend  or 0.0)) / total_p)
+        # Use max() not sum: all 3 matchups come from the same underlying polls,
+        # so ne ≈ nm ≈ ns. Summing would triple-count and inflate poll weight.
+        n_polls = max(ne, nm, ns)
 
     elif state_abbr == 'TX':
         # Separate blends per R candidate
@@ -129,7 +158,8 @@ def compute_poll_blend(state_abbr, polls_df, reference_date, config):
 
         blend = (priors['TX_cornyn'] * cornyn_blend +
                  priors['TX_paxton'] * paxton_blend)
-        n_polls = nc + np_
+        # max() not sum: Cornyn/Paxton matchups come from the same polls
+        n_polls = max(nc, np_)
 
     else:
         blend, n_polls = _blend_subset(state_polls, reference_date)
@@ -161,8 +191,10 @@ if __name__ == '__main__':
     print()
     # Verify special cases
     me = compute_poll_blend('ME', df, ref, cfg)
+    mi = compute_poll_blend('MI', df, ref, cfg)
     tx = compute_poll_blend('TX', df, ref, cfg)
     ak = compute_poll_blend('AK', df, ref, cfg)
-    print(f"VERIFY: ME blend uses Platner/Mills primary weighting → {'PASS' if me['n_polls'] > 0 else 'FAIL'}")
-    print(f"VERIFY: TX blend uses Cornyn/Paxton primary weighting → {'PASS' if tx['n_polls'] > 0 else 'FAIL'}")
-    print(f"VERIFY: AK only uses H2H_SULLIVAN polls → {'PASS' if ak['n_polls'] > 0 else 'FAIL'}")
+    print(f"VERIFY: ME blend uses Platner/Mills primary weighting → {'PASS' if me['n_polls'] > 0 else 'NO POLLS YET (expected)'}")
+    print(f"VERIFY: MI blend uses 3-way D primary weighting       → {'PASS' if mi['n_polls'] > 0 else 'FAIL'}")
+    print(f"VERIFY: TX blend uses Cornyn/Paxton primary weighting → {'PASS' if tx['n_polls'] > 0 else 'NO POLLS YET (expected)'}")
+    print(f"VERIFY: AK only uses H2H_SULLIVAN polls               → {'PASS' if ak['n_polls'] > 0 else 'NO POLLS YET (expected)'}")

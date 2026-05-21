@@ -1,0 +1,117 @@
+# ── 2022 BACKTEST CONFIG ────────────────────────────────────────────────────────
+# Simulates model as it would run on Nov 7, 2022 (day before election).
+# GCB/OOP layer bypassed: use fixed values from backtest.gcb_* fields.
+# Demographic layer bypassed: zero shifts (day before election, polls dominate).
+
+model_version: "backtest_2022"
+election_date: "2022-11-08"
+
+backtest:
+  ref_date:          "2022-11-07"
+  gcb_today:         +0.3    # Silver Bulletin election-eve GCB ~D+0.3
+  gcb_eday_central:  +0.3    # no OOP shift remaining at day 1
+  gcb_sigma:         1.5     # day-before-election uncertainty
+
+# ── CATALIST ANCHOR ─────────────────────────────────────────────────────────────
+# national_gcb = 2020 House popular vote D margin (~D+3.1)
+# national_shift = gcb_eday_central - national_gcb = 0.3 - 3.1 = -2.8pp
+# i.e., 2022 environment is -2.8pp vs 2020 baselines — small R wave baked in.
+catalist_2024:
+  national_gcb: +3.1
+  group_d_share:   # not used (zero shifts); values are approximate 2020 actuals
+    white_nc:      0.380
+    white_college: 0.500
+    hispanic:      0.590
+    black:         0.870
+    aapi:          0.620
+    youth_18_29:   0.510
+    seniors_65p:   0.460
+    total:         0.509
+
+oop:
+  half_life_years: 12
+  gcb_tracker_uncertainty: 1.50
+  cycles:   # not used in backtest (OOP bypassed), kept for structural completeness
+    - [1994, +4.4]
+    - [1998, -1.3]
+    - [2006, +1.9]
+    - [2010, +3.6]
+    - [2014, +3.0]
+    - [2018, +0.8]
+
+# ── CATALIST STATE OVERRIDES ────────────────────────────────────────────────────
+# Same logic as 2026: unreliable baselines replaced with presidential averages.
+catalist_state_overrides:
+  AK: -11.9   # 2-cycle pres avg (2016: -14.7, 2020: -10.1)
+  VT: +33.1   # all uncontested; 2-cycle pres avg (2016: +26.4, 2020: +35.4) — approximate
+  ND: -35.1   # all uncontested; 2-cycle pres avg (2016: -35.7, 2020: -33.1) — approximate
+  MN: +7.6    # uncontested skew; 2-cycle pres avg (2016: +1.5, 2020: +7.1) — approximate
+  MA: +30.5   # uncontested skew; 2-cycle pres avg (2016: +27.2, 2020: +33.5) — approximate
+
+turnout_ratios:
+  white:    1.115
+  black:    0.905
+  hispanic: 0.660
+  aapi:     0.900
+  other:    0.750
+
+# ── RACE MODEL ──────────────────────────────────────────────────────────────────
+race_model:
+
+  time_sigma_base: 4.50   # same as 2026; decays to ~0.32pp at day 1
+
+  primary_extra_sigma: {}   # all primaries resolved by Nov 7
+
+  # WAR: 2022 candidates
+  # d = D candidate bonus (pp), r = R candidate bonus (positive = favors R)
+  war:
+    AZ: {d: +3.0, r: -1.0}   # Kelly — military/bipartisan. Masters — extreme, weak
+    FL: {d: +2.0, r: +2.5}   # Demings — strong candidate. Rubio — strong incumbent
+    GA: {d: +3.0, r: -3.0}   # Warnock — strong incumbent. Walker — scandal-plagued, weak
+    NC: {d: +1.5, r:  0.0}   # Beasley — quality candidate. Budd — generic R
+    NH: {d: +2.0, r: -2.0}   # Hassan — incumbent. Bolduc — MAGA extremist
+    NV: {d: +1.0, r: +1.0}   # CCM — decent incumbent. Laxalt — solid candidate
+    OH: {d: +4.0, r:  0.0}   # Ryan — exceptional overperformer, massive fundraising
+    PA: {d: +2.5, r: -2.0}   # Fetterman — strong brand. Oz — carpetbagger, weak
+    WI: {d:  0.0, r: +3.0}   # Barnes — weaker candidate. Johnson — strong incumbent
+
+  primary_priors: {}   # no primaries in play
+
+  weights:
+    n_0:
+      war:  0.15
+      fund: 0.05
+    n_1_to_4:
+      war:  0.12
+      fund: 0.04
+    n_gte_5:
+      war:  0.10
+      fund: 0.03
+    state_weight_overrides: {}
+
+  blending:
+    base_env_weight:  0.80
+    poll_threshold:   10
+    time_decay_power: 0.50
+    state_overrides: {}
+
+# ── MONTE CARLO ─────────────────────────────────────────────────────────────────
+simulation:
+  n_sims: 100000
+  seed: 42
+  # Day-before-election: GCB has stabilized. Small national shock.
+  gcb_national_sigma: 1.0
+  d_seats_not_up: 36     # non-Class-III D-caucus seats (50 caucus - 14 D/D-caucus Class III up)
+  majority_threshold: 51
+  national_baseline_correlation: 0.65
+  correlations:
+    - {states: [PA, OH], value: 0.82}
+    - {states: [PA, WI], value: 0.78}
+    - {states: [PA, NV], value: 0.70}
+    - {states: [OH, WI], value: 0.80}
+    - {states: [OH, NC], value: 0.72}
+    - {states: [WI, NV], value: 0.68}
+    - {states: [GA, NC], value: 0.75}
+    - {states: [GA, PA], value: 0.65}
+    - {states: [AZ, NV], value: 0.78}
+    - {states: [NH, PA], value: 0.65}

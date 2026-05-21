@@ -1,9 +1,37 @@
 entry_id,pollster,grade,date_start,date_end,n,group,metric,value,note
-1,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,white_nc,gcb_d_share,0.431,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
-2,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,white_college,gcb_d_share,0.586,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
-3,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,hispanic,gcb_d_share,0.570,Blended estimate — Echelon excluded
-4,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,black,gcb_d_share,0.816,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
-5,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,aapi,gcb_d_share,0.667,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
-6,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,youth_18_29,gcb_d_share,0.595,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
-7,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,seniors_65p,gcb_d_share,0.515,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
-8,Seed_April2026,2.5,2026-03-01,2026-04-29,3000,total,gcb_d_share,0.525,Blended estimate from Fox/Beacon+Marist+ECP Apr 2026
+201074F0_00,The New York Times/Siena College,3.0,2026-05-11,2026-05-15,1507,white_nc,gcb_d_share,0.3846,Two-party share D/(D+R). AAPI excluded — lumped with Other.
+201074F0_01,The New York Times/Siena College,3.0,2026-05-11,2026-05-15,1507,white_college,gcb_d_share,0.5638,Two-party share D/(D+R). AAPI excluded — lumped with Other.
+201074F0_02,The New York Times/Siena College,3.0,2026-05-11,2026-05-15,1507,hispanic,gcb_d_share,0.6923,Two-party share D/(D+R). AAPI excluded — lumped with Other.
+201074F0_03,The New York Times/Siena College,3.0,2026-05-11,2026-05-15,1507,black,gcb_d_share,0.9,Two-party share D/(D+R). AAPI excluded — lumped with Other.
+201074F0_04,The New York Times/Siena College,3.0,2026-05-11,2026-05-15,1507,youth_18_29,gcb_d_share,0.7045,Two-party share D/(D+R). AAPI excluded — lumped with Other.
+201074F0_05,The New York Times/Siena College,3.0,2026-05-11,2026-05-15,1507,seniors_65p,gcb_d_share,0.5161,Two-party share D/(D+R). AAPI excluded — lumped with Other.
+201074F0_06,The New York Times/Siena College,3.0,2026-05-11,2026-05-15,1507,total,gcb_d_share,0.5618,Two-party share D/(D+R). AAPI excluded — lumped with Other.
+32920D09_00,Cygnal,2.2,2026-05-05,2026-05-06,1500,total,gcb_d_share,0.5336,Two-party D/(D+R). LV. White col/no-col and 18-29/65+ not broken out in crosstabs.
+32920D09_01,Cygnal,2.2,2026-05-05,2026-05-06,1500,black,gcb_d_share,0.8242,Two-party D/(D+R). LV. White col/no-col and 18-29/65+ not broken out in crosstabs.
+32920D09_02,Cygnal,2.2,2026-05-05,2026-05-06,1500,hispanic,gcb_d_share,0.573,Two-party D/(D+R). LV. White col/no-col and 18-29/65+ not broken out in crosstabs.
+4D8E1B27_00,NPR/PBS News/Marist Poll,3.0,2026-04-27,2026-04-30,1155,total,gcb_d_share,0.5532,Two-party D/(D+R). Registered Voters. No AAPI breakdown available (lumped with Other).
+4D8E1B27_01,NPR/PBS News/Marist Poll,3.0,2026-04-27,2026-04-30,1155,white_nc,gcb_d_share,0.4681,Two-party D/(D+R). Registered Voters. White not college graduate. No AAPI breakdown available.
+4D8E1B27_02,NPR/PBS News/Marist Poll,3.0,2026-04-27,2026-04-30,1155,white_college,gcb_d_share,0.6105,Two-party D/(D+R). Registered Voters. White college graduate. No AAPI breakdown available.
+4D8E1B27_03,NPR/PBS News/Marist Poll,3.0,2026-04-27,2026-04-30,1155,black,gcb_d_share,0.7629,Two-party D/(D+R). Registered Voters. No AAPI breakdown available.
+4D8E1B27_04,NPR/PBS News/Marist Poll,3.0,2026-04-27,2026-04-30,1155,hispanic,gcb_d_share,0.5684,Two-party D/(D+R). Registered Voters. No AAPI breakdown available.
+4D8E1B27_05,NPR/PBS News/Marist Poll,3.0,2026-04-27,2026-04-30,1155,youth_18_29,gcb_d_share,0.6129,Two-party D/(D+R). Registered Voters. Uses 18-29 age band.
+4D8E1B27_06,NPR/PBS News/Marist Poll,3.0,2026-04-27,2026-04-30,1155,seniors_65p,gcb_d_share,0.5625,Two-party D/(D+R). Registered Voters. Uses 60+ as proxy for 65+ (best available from Marist age breaks).
+A11A5B04_00,AtlasIntel,2.7,2026-05-04,2026-05-07,2069,total,gcb_d_share,0.5766,Two-party D/(D+R). RDR methodology. White not split by edu; black omitted (anomalous -17pp vs 2024 baseline — likely small-n artifact).
+A11A5B04_01,AtlasIntel,2.7,2026-05-04,2026-05-07,2069,hispanic,gcb_d_share,0.6090,Two-party D/(D+R). RDR methodology. White not split by edu; black omitted (anomalous -17pp vs 2024 baseline — likely small-n artifact).
+A11A5B04_02,AtlasIntel,2.7,2026-05-04,2026-05-07,2069,aapi,gcb_d_share,0.6570,Two-party D/(D+R). RDR methodology. White not split by edu; black omitted (anomalous -17pp vs 2024 baseline — likely small-n artifact).
+A11A5B04_03,AtlasIntel,2.7,2026-05-04,2026-05-07,2069,other,gcb_d_share,0.5559,Two-party D/(D+R). RDR methodology. White not split by edu; black omitted (anomalous -17pp vs 2024 baseline — likely small-n artifact).
+EI051426_00,Echelon Insights,2.5,2026-05-14,2026-05-18,1008,total,gcb_d_share,0.5426,Two-party D/(D+R). Likely electorate. No white×edu split; AAPI in Other/2+ bucket.
+EI051426_01,Echelon Insights,2.5,2026-05-14,2026-05-18,1008,black,gcb_d_share,0.8925,Two-party D/(D+R). Likely electorate. No white×edu split; AAPI in Other/2+ bucket.
+EI051426_02,Echelon Insights,2.5,2026-05-14,2026-05-18,1008,hispanic,gcb_d_share,0.6667,Two-party D/(D+R). Likely electorate. No white×edu split; AAPI in Other/2+ bucket.
+EI051426_03,Echelon Insights,2.5,2026-05-14,2026-05-18,1008,seniors_65p,gcb_d_share,0.5213,Two-party D/(D+R). Likely electorate. Uses 65+ directly.
+EI051426_04,Echelon Insights,2.5,2026-05-14,2026-05-18,1008,youth_18_29,gcb_d_share,0.6484,Two-party D/(D+R). Likely electorate. Uses 18-34 as proxy for 18-29 (18-29 not broken out).
+ML040826_00,Marquette Law School Poll,3.0,2026-04-08,2026-04-16,964,hispanic,gcb_d_share,0.6667,Two-party D/(D+R). National adults. 54%D/27%R from Hispanic crosstab. No white×edu or AAPI breakdown.
+ML040826_01,Marquette Law School Poll,3.0,2026-04-08,2026-04-16,964,black,gcb_d_share,0.8500,Two-party D/(D+R). National adults. 68%D/12%R from Black Non-Hispanic crosstab.
+ML040826_02,Marquette Law School Poll,3.0,2026-04-08,2026-04-16,964,youth_18_29,gcb_d_share,0.6579,Two-party D/(D+R). National adults. 50%D/26%R from 18-29 age crosstab.
+ML040826_03,Marquette Law School Poll,3.0,2026-04-08,2026-04-16,964,seniors_65p,gcb_d_share,0.4839,Two-party D/(D+R). National adults. 45%D/48%R from 60+ band (proxy for 65+).
+ML040826_04,Marquette Law School Poll,3.0,2026-04-08,2026-04-16,964,total,gcb_d_share,0.5217,Two-party D/(D+R). Registered voters subset (n=781). 48%D/44%R.
+EC042926_00,Emerson College Polling,2.5,2026-04-25,2026-04-29,1000,hispanic,gcb_d_share,0.7037,Two-party D/(D+R). 76D/32R from Hispanic or Latino crosstab. No white_nc/white_college available (no race×edu crosstab).
+EC042926_01,Emerson College Polling,2.5,2026-04-25,2026-04-29,1000,black,gcb_d_share,0.8174,Two-party D/(D+R). 94D/21R from Black or African American crosstab.
+EC042926_02,Emerson College Polling,2.5,2026-04-25,2026-04-29,1000,aapi,gcb_d_share,0.8182,Two-party D/(D+R). 36D/8R from Asian crosstab (AAPI proxy — Asian only; other races excluded).
+EC042926_03,Emerson College Polling,2.5,2026-04-25,2026-04-29,1000,youth_18_29,gcb_d_share,0.6080,Two-party D/(D+R). 76D/49R from 18-29 years age crosstab.
+EC042926_04,Emerson College Polling,2.5,2026-04-25,2026-04-29,1000,total,gcb_d_share,0.5558,Two-party D/(D+R). 503D/402R overall. seniors_65p skipped — poll uses 60-69/70+ breaks not 65+.

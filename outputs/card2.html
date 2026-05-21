@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2026 Senate Model — Card 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width:1200px; height:700px;
+  font-family:'Inter',system-ui,sans-serif;
+  background:#f1f5f9; color:#0f172a; overflow:hidden;
+}
+
+.hdr {
+  height:48px; background:#fff; border-bottom:2px solid #e2e8f0;
+  display:flex; align-items:center; justify-content:space-between; padding:0 28px;
+}
+.dot { width:8px; height:8px; border-radius:50%; background:#22c55e; box-shadow:0 0 0 3px #dcfce7; }
+.hdr-l { display:flex; align-items:center; gap:10px; }
+.hdr-title { font-size:12px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:#475569; }
+.hdr-title em { color:#1e40af; font-style:normal; }
+.hdr-r { font-size:11px; color:#94a3b8; font-weight:500; }
+
+/* 2-column body */
+.body { height:652px; display:grid; grid-template-columns:1fr 1px 400px; }
+.vl { background:#e2e8f0; }
+
+/* ── LEFT: GCB chart ── */
+.gcb-panel {
+  background:#fff; padding:18px 22px 14px;
+  display:flex; flex-direction:column;
+}
+.panel-title { font-size:14px; font-weight:800; color:#0f172a; }
+.panel-sub { font-size:10px; color:#94a3b8; font-weight:500; margin-top:2px; margin-bottom:12px; }
+.gcb-img { width:100%; flex:1; object-fit:contain; object-position:left top; }
+
+/* ── RIGHT: Demographic shifts ── */
+.demo-panel {
+  background:#fff; padding:18px 20px 14px;
+  display:flex; flex-direction:column;
+}
+.demo-title { font-size:14px; font-weight:800; color:#0f172a; }
+.demo-sub { font-size:10px; color:#94a3b8; font-weight:500; margin-top:2px; margin-bottom:12px; }
+
+.demo-rows { display:flex; flex-direction:column; flex:1; }
+
+.drow {
+  display:flex; flex-direction:column;
+  justify-content:center;
+  padding:0;
+  border-bottom:1px solid #f1f5f9;
+  flex:1;
+}
+.drow:last-child { border-bottom:none; }
+
+/* top line: label + shift number */
+.drow-top {
+  display:flex; align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:5px;
+}
+.drow-label { font-size:12.5px; font-weight:700; color:#0f172a; }
+.drow-n { font-size:9px; color:#94a3b8; font-weight:500; margin-left:4px; }
+
+.drow-shift {
+  font-size:22px; font-weight:900; line-height:1;
+  letter-spacing:-0.5px;
+}
+.drow-shift.pos { color:#1e40af; }
+.drow-shift.neg { color:#dc2626; }
+
+/* diverging bar */
+.drow-bar-wrap {
+  height:10px; border-radius:4px; background:#f1f5f9;
+  position:relative; overflow:hidden;
+}
+.drow-bar-fill {
+  position:absolute; top:0; bottom:0;
+  border-radius:3px;
+}
+
+/* bottom line: current D share */
+.drow-bottom {
+  display:flex; justify-content:space-between;
+  margin-top:4px;
+}
+.drow-meta { font-size:9px; color:#94a3b8; font-weight:500; }
+.drow-meta.cur { color:#1e40af; font-weight:600; }
+
+.demo-footer {
+  margin-top:10px; padding-top:8px; border-top:1px solid #f1f5f9;
+  font-size:8px; color:#94a3b8; line-height:1.6;
+}
+.demo-footer strong { color:#64748b; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-l">
+    <div class="dot"></div>
+    <div class="hdr-title">🗳 <em>2026 Senate Model</em> &nbsp;·&nbsp; v1 &nbsp;·&nbsp; Card 2 of 2</div>
+  </div>
+  <div class="hdr-r">May 19, 2026 &nbsp;·&nbsp; 168 days to Election Day</div>
+</div>
+
+<div class="body">
+
+  <!-- GCB CHART -->
+  <div class="gcb-panel">
+    <div class="panel-title">Generic Congressional Ballot — 2026 Tracker</div>
+    <div class="panel-sub">Silver Bulletin adjusted polls (n=162) with model trend &nbsp;·&nbsp; OOP projection: D+7.8 by Election Day</div>
+    <img class="gcb-img" src="chart_gcb_polls.png" alt="GCB trend chart">
+  </div>
+
+  <div class="vl"></div>
+
+  <!-- DEMOGRAPHIC SHIFTS -->
+  <div class="demo-panel">
+    <div class="demo-title">Demographic Shifts vs 2024</div>
+    <div class="demo-sub">Change in D vote share by group &nbsp;·&nbsp; 2024 Catalist baseline → 2026 polls</div>
+
+    <div class="demo-rows" id="demo-rows"></div>
+
+    <div class="demo-footer">
+      <strong>Method:</strong> Grade × recency weighted avg of 2026 national crosstab polls vs Catalist 2024 actuals.
+      National shift: <strong style="color:#1e40af">+4.4pp</strong> toward D vs 2024 total electorate.
+    </div>
+  </div>
+
+</div>
+
+<script>
+// MAX_SHIFT for bar scaling — normalize to ±14pp so bars are visible
+const MAX_SHIFT = 14;
+
+const groups = [
+  { label:'White non-college', base:0.360, cur:0.423, shift:+6.3, n:2 },
+  { label:'White college',     base:0.502, cur:0.585, shift:+8.3, n:2 },
+  { label:'Hispanic',          base:0.571, cur:0.641, shift:+7.0, n:7 },
+  { label:'Black',             base:0.858, cur:0.844, shift:-1.4, n:6 },
+  { label:'AAPI',              base:0.616, cur:0.734, shift:+11.8, n:2 },
+  { label:'Youth 18–29',       base:0.538, cur:0.650, shift:+11.2, n:5 },
+  { label:'Seniors 65+',       base:0.478, cur:0.522, shift:+4.4,  n:4 },
+  { label:'Total electorate',  base:0.506, cur:0.550, shift:+4.4,  n:7 },
+];
+
+const container = document.getElementById('demo-rows');
+
+groups.forEach(g => {
+  const sign      = g.shift >= 0 ? '+' : '';
+  const isPos     = g.shift >= 0;
+  const clr       = isPos ? '#1e40af' : '#dc2626';
+  const barFrac   = Math.abs(g.shift) / MAX_SHIFT;  // 0–1
+  const halfW     = 50; // percent, center of bar
+  const barWidthPct = barFrac * halfW;
+
+  const row = document.createElement('div');
+  row.className = 'drow';
+
+  // For a diverging bar anchored at center (50%):
+  // positive shift → fill goes from 50% to (50% + barWidthPct%)
+  // negative shift → fill goes from (50% - barWidthPct%) to 50%
+  const fillLeft  = isPos ? '50%' : `${50 - barWidthPct}%`;
+  const fillWidth = `${barWidthPct}%`;
+
+  row.innerHTML = `
+    <div class="drow-top">
+      <div>
+        <span class="drow-label">${g.label}</span>
+        <span class="drow-n">(n=${g.n})</span>
+      </div>
+      <div class="drow-shift ${isPos ? 'pos' : 'neg'}">${sign}${g.shift.toFixed(1)}pp</div>
+    </div>
+    <div class="drow-bar-wrap">
+      <div class="drow-bar-fill" style="left:${fillLeft};width:${fillWidth};background:${clr};opacity:0.75;"></div>
+      <div style="position:absolute;top:0;bottom:0;left:50%;width:1px;background:#cbd5e1;"></div>
+    </div>
+    <div class="drow-bottom">
+      <div class="drow-meta">2024: ${(g.base*100).toFixed(1)}% D</div>
+      <div class="drow-meta cur">2026 est: ${(g.cur*100).toFixed(1)}% D</div>
+    </div>
+  `;
+  container.appendChild(row);
+});
+</script>
+</body>
+</html>

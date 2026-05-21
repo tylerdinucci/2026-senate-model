@@ -2,14 +2,14 @@
   "run_date": "2026-05-15",
   "model_version": "v1",
   "oop": {
-    "gcb_today": 6.1,
+    "gcb_today": 5.92,
     "gcb_date": "2026-05-15",
     "oop_shift": 1.599,
     "oop_std": 1.535,
     "gcb_sigma": 2.146,
-    "gcb_eday_central": 7.699,
-    "gcb_eday_lo": 5.553,
-    "gcb_eday_hi": 9.845,
+    "gcb_eday_central": 7.519,
+    "gcb_eday_lo": 5.373,
+    "gcb_eday_hi": 9.665,
     "cycle_weights": [
       [
         1994,
@@ -49,289 +49,291 @@
     ]
   },
   "simulation": {
-    "d_majority_prob": 0.8751,
-    "exp_d_seats": 52.9,
-    "tie_50_prob": 0.083,
-    "maj_lo": 0.6985,
-    "maj_hi": 0.9626,
+    "d_majority_prob": 0.7406,
+    "exp_d_seats": 51.99,
+    "tie_50_prob": 0.1114,
+    "maj_lo": 0.5506,
+    "maj_hi": 0.8767,
     "seat_distribution": {
-      "48": 0.0013,
-      "49": 0.0406,
-      "50": 0.083,
-      "51": 0.1169,
-      "52": 0.1577,
-      "53": 0.2028,
-      "54": 0.1898,
-      "55": 0.108,
-      "56": 0.0922,
-      "57": 0.0074
+      "47": 0.0221,
+      "48": 0.0495,
+      "49": 0.0755,
+      "50": 0.1114,
+      "51": 0.1577,
+      "52": 0.1784,
+      "53": 0.1527,
+      "54": 0.102,
+      "55": 0.0754,
+      "56": 0.0491,
+      "57": 0.0229,
+      "58": 0.0025
     }
   },
   "races": {
     "AL": {
-      "d_prob": 0.0109,
-      "central": -8.635,
-      "sigma": 3.763,
+      "d_prob": 0.0005,
+      "central": -15.224,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "AK": {
-      "d_prob": 0.6616,
-      "central": 1.512,
-      "sigma": 3.629,
-      "rating": "Lean D",
-      "n_polls": 1
+      "d_prob": 0.4023,
+      "central": -1.142,
+      "sigma": 4.614,
+      "rating": "Tossup",
+      "n_polls": 0
     },
     "AR": {
       "d_prob": 0.0,
       "central": -22.054,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "CO": {
-      "d_prob": 1.0,
+      "d_prob": 0.9993,
       "central": 14.674,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe D",
       "n_polls": 0
     },
     "DE": {
-      "d_prob": 1.0,
+      "d_prob": 0.9998,
       "central": 16.523,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe D",
       "n_polls": 0
     },
     "FL": {
-      "d_prob": 0.0172,
-      "central": -7.676,
-      "sigma": 3.629,
+      "d_prob": 0.0498,
+      "central": -7.599,
+      "sigma": 4.614,
       "rating": "Safe R",
-      "n_polls": 1
+      "n_polls": 0
     },
     "GA": {
-      "d_prob": 0.7139,
-      "central": 2.049,
-      "sigma": 3.629,
-      "rating": "Lean D",
-      "n_polls": 1
+      "d_prob": 0.5323,
+      "central": 0.374,
+      "sigma": 4.614,
+      "rating": "Tossup",
+      "n_polls": 0
     },
     "ID": {
       "d_prob": 0.0,
       "central": -24.408,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "IL": {
       "d_prob": 1.0,
       "central": 19.456,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe D",
       "n_polls": 0
     },
     "IA": {
-      "d_prob": 0.185,
-      "central": -3.254,
-      "sigma": 3.629,
+      "d_prob": 0.1956,
+      "central": -3.956,
+      "sigma": 4.614,
       "rating": "Likely R",
-      "n_polls": 1
+      "n_polls": 0
     },
     "KS": {
-      "d_prob": 0.0223,
+      "d_prob": 0.0506,
       "central": -7.56,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "KY": {
-      "d_prob": 0.0003,
+      "d_prob": 0.0024,
       "central": -12.998,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "LA": {
-      "d_prob": 0.0048,
+      "d_prob": 0.0173,
       "central": -9.744,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "MA": {
       "d_prob": 1.0,
-      "central": 24.955,
-      "sigma": 3.763,
+      "central": 28.704,
+      "sigma": 4.614,
       "rating": "Safe D",
       "n_polls": 0
     },
     "MD": {
       "d_prob": 1.0,
       "central": 25.809,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe D",
       "n_polls": 0
     },
     "ME": {
-      "d_prob": 0.9991,
-      "central": 11.423,
-      "sigma": 3.663,
+      "d_prob": 0.9986,
+      "central": 13.861,
+      "sigma": 4.641,
       "rating": "Safe D",
-      "n_polls": 2
+      "n_polls": 0
     },
     "MI": {
-      "d_prob": 0.7824,
-      "central": 3.064,
-      "sigma": 3.926,
-      "rating": "Lean D",
-      "n_polls": 1
+      "d_prob": 0.8142,
+      "central": 4.335,
+      "sigma": 4.851,
+      "rating": "Likely D",
+      "n_polls": 0
     },
     "MN": {
-      "d_prob": 1.0,
-      "central": 24.532,
-      "sigma": 3.629,
+      "d_prob": 0.9855,
+      "central": 10.078,
+      "sigma": 4.614,
       "rating": "Safe D",
-      "n_polls": 1
+      "n_polls": 0
     },
     "MS": {
-      "d_prob": 0.0002,
+      "d_prob": 0.0022,
       "central": -13.141,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "MT": {
-      "d_prob": 0.0155,
+      "d_prob": 0.0392,
       "central": -8.118,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "NE": {
-      "d_prob": 0.0094,
-      "central": -8.523,
-      "sigma": 3.629,
+      "d_prob": 0.0044,
+      "central": -12.078,
+      "sigma": 4.614,
       "rating": "Safe R",
-      "n_polls": 1
+      "n_polls": 0
     },
     "NH": {
-      "d_prob": 0.9992,
-      "central": 11.48,
-      "sigma": 3.629,
+      "d_prob": 0.995,
+      "central": 11.899,
+      "sigma": 4.614,
       "rating": "Safe D",
-      "n_polls": 1
+      "n_polls": 0
     },
     "OH": {
-      "d_prob": 0.1733,
-      "central": -3.415,
-      "sigma": 3.629,
-      "rating": "Likely R",
-      "n_polls": 1
+      "d_prob": 0.2149,
+      "central": -3.642,
+      "sigma": 4.614,
+      "rating": "Lean R",
+      "n_polls": 0
     },
     "NJ": {
-      "d_prob": 0.9962,
+      "d_prob": 0.9853,
       "central": 10.053,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe D",
       "n_polls": 0
     },
     "NM": {
-      "d_prob": 0.9991,
+      "d_prob": 0.9944,
       "central": 11.705,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe D",
       "n_polls": 0
     },
     "NC": {
-      "d_prob": 0.9333,
-      "central": 5.445,
-      "sigma": 3.629,
+      "d_prob": 0.8127,
+      "central": 4.097,
+      "sigma": 4.614,
       "rating": "Likely D",
-      "n_polls": 1
+      "n_polls": 0
     },
     "OK": {
       "d_prob": 0.0,
       "central": -21.175,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "OR": {
-      "d_prob": 0.9999,
+      "d_prob": 0.9992,
       "central": 14.632,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe D",
       "n_polls": 0
     },
     "RI": {
       "d_prob": 1.0,
       "central": 23.291,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe D",
       "n_polls": 0
     },
     "SC": {
-      "d_prob": 0.0012,
+      "d_prob": 0.0065,
       "central": -11.469,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "SD": {
       "d_prob": 0.0,
       "central": -27.073,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "TN": {
       "d_prob": 0.0,
       "central": -18.679,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "TX": {
-      "d_prob": 0.4113,
-      "central": -0.88,
-      "sigma": 3.926,
-      "rating": "Tossup",
-      "n_polls": 2
+      "d_prob": 0.11,
+      "central": -5.952,
+      "sigma": 4.851,
+      "rating": "Likely R",
+      "n_polls": 0
     },
     "VA": {
-      "d_prob": 0.9776,
+      "d_prob": 0.9492,
       "central": 7.551,
-      "sigma": 3.763,
-      "rating": "Safe D",
+      "sigma": 4.614,
+      "rating": "Likely D",
       "n_polls": 0
     },
     "WA": {
       "d_prob": 1.0,
       "central": 19.341,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe D",
       "n_polls": 0
     },
     "WV": {
       "d_prob": 0.0,
       "central": -25.704,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "WY": {
       "d_prob": 0.0,
       "central": -31.648,
-      "sigma": 3.763,
+      "sigma": 4.614,
       "rating": "Safe R",
       "n_polls": 0
     },
     "NV": {
-      "d_prob": 0.9922,
-      "central": 9.1,
-      "sigma": 3.763,
-      "rating": "Safe D",
+      "d_prob": 0.8243,
+      "central": 4.299,
+      "sigma": 4.614,
+      "rating": "Likely D",
       "n_polls": 0
     }
   },

@@ -1,1 +1,96 @@
 poll_id,state,abbr,d_candidate,r_candidate,d_pct,r_pct,undi_pct,n,pollster,grade,partisan,date_start,date_end,methodology,note
+MI_MRC_050126_a,Michigan,MI,El-Sayed,Mike Rogers,41,42,17,600,Mitchell Research & Communications,2.0,False,2026-05-01,2026-05-07,Live phone,MIRS sponsored. 3-way D primary matchup.
+MI_MRC_050126_b,Michigan,MI,McMorrow,Mike Rogers,41,43,16,600,Mitchell Research & Communications,2.0,False,2026-05-01,2026-05-07,Live phone,MIRS sponsored. 3-way D primary matchup.
+MI_MRC_050126_c,Michigan,MI,Stevens,Mike Rogers,39,42,19,600,Mitchell Research & Communications,2.0,False,2026-05-01,2026-05-07,Live phone,MIRS sponsored. 3-way D primary matchup.
+MI_GG_042826_a,Michigan,MI,El-Sayed,Mike Rogers,40,45,15,600,Glengariff Group,2.0,False,2026-04-28,2026-05-01,Live phone,Detroit Regional Chamber sponsored. 3-way D primary matchup.
+MI_GG_042826_b,Michigan,MI,McMorrow,Mike Rogers,41,43,16,600,Glengariff Group,2.0,False,2026-04-28,2026-05-01,Live phone,Detroit Regional Chamber sponsored. 3-way D primary matchup.
+MI_GG_042826_c,Michigan,MI,Stevens,Mike Rogers,42,44,14,600,Glengariff Group,2.0,False,2026-04-28,2026-05-01,Live phone,Detroit Regional Chamber sponsored. 3-way D primary matchup.
+MI_EC_012426_a,Michigan,MI,McMorrow,Mike Rogers,46,43,11,1000,Emerson College,2.5,False,2026-01-24,2026-01-25,Online panel,Nexstar sponsored. 3-way D primary matchup.
+MI_EC_012426_b,Michigan,MI,Stevens,Mike Rogers,47,42,11,1000,Emerson College,2.5,False,2026-01-24,2026-01-25,Online panel,Nexstar sponsored. 3-way D primary matchup.
+MI_EC_012426_c,Michigan,MI,El-Sayed,Mike Rogers,43,43,14,1000,Emerson College,2.5,False,2026-01-24,2026-01-25,Online panel,Nexstar sponsored. 3-way D primary matchup.
+MI_GG_010226_a,Michigan,MI,El-Sayed,Mike Rogers,42,48,10,600,Glengariff Group,2.0,False,2026-01-02,2026-01-06,Live phone,Detroit News/WDIV-TV sponsored. 3-way D primary matchup.
+MI_GG_010226_b,Michigan,MI,McMorrow,Mike Rogers,42,46,12,600,Glengariff Group,2.0,False,2026-01-02,2026-01-06,Live phone,Detroit News/WDIV-TV sponsored. 3-way D primary matchup.
+MI_GG_010226_c,Michigan,MI,Stevens,Mike Rogers,44,44,12,600,Glengariff Group,2.0,False,2026-01-02,2026-01-06,Live phone,Detroit News/WDIV-TV sponsored. 3-way D primary matchup.
+MI_MRC_111825_a,Michigan,MI,Stevens,Mike Rogers,40,42,18,600,Mitchell Research & Communications,2.0,False,2025-11-18,2025-11-21,Live phone,MIRS News Service sponsored. 3-way D primary matchup.
+MI_MRC_111825_b,Michigan,MI,McMorrow,Mike Rogers,38,44,18,600,Mitchell Research & Communications,2.0,False,2025-11-18,2025-11-21,Live phone,MIRS News Service sponsored. 3-way D primary matchup.
+MI_MRC_111825_c,Michigan,MI,El-Sayed,Mike Rogers,38,41,21,600,Mitchell Research & Communications,2.0,False,2025-11-18,2025-11-21,Live phone,MIRS News Service sponsored. 3-way D primary matchup.
+MI_EPIC_110625_a,Michigan,MI,Stevens,Mike Rogers,44,42,14,600,EPIC-MRA,2.5,False,2025-11-06,2025-11-11,Live phone,ABC 12 sponsored. 3-way D primary matchup.
+MI_EPIC_110625_b,Michigan,MI,McMorrow,Mike Rogers,43,42,15,600,EPIC-MRA,2.5,False,2025-11-06,2025-11-11,Live phone,ABC 12 sponsored. 3-way D primary matchup.
+MI_RS_102325_a,Michigan,MI,Stevens,Mike Rogers,40,47,13,500,Rosetta Stone,1.5,True,2025-10-23,2025-10-25,Online panel,No sponsor listed — treated as partisan/internal. 3-way D primary matchup.
+MI_RS_102325_b,Michigan,MI,El-Sayed,Mike Rogers,31,45,24,500,Rosetta Stone,1.5,True,2025-10-23,2025-10-25,Online panel,No sponsor listed — treated as partisan/internal. 3-way D primary matchup.
+MI_RS_102325_c,Michigan,MI,McMorrow,Mike Rogers,39,46,15,500,Rosetta Stone,1.5,True,2025-10-23,2025-10-25,Online panel,No sponsor listed — treated as partisan/internal. 3-way D primary matchup.
+MI_NPA_061225_a,Michigan,MI,McMorrow,Mike Rogers,44,48,8,500,Normington Petts & Associates,2.0,True,2025-06-12,2025-06-16,Online panel,Yes Michigan sponsored — partisan (D-aligned). 3-way D primary matchup.
+ME_EI_040326_a,Maine,ME,Platner,Susan Collins,51,45,4,600,Echelon Insights,2.5,False,2026-04-03,2026-04-09,Online panel,NetChoice sponsored. Mills matchup omitted — Mills dropped out Apr 30.
+ME_MPRC_032026_a,Maine,ME,Platner,Susan Collins,48,39,13,500,Maine People's Resource Center,1.8,True,2026-03-20,2026-03-31,Mixed mode,No sponsor listed — D-aligned Maine research org. Mills matchup omitted.
+ME_EC_032126_a,Maine,ME,Platner,Susan Collins,48,41,11,600,Emerson College,2.5,False,2026-03-21,2026-03-23,Online panel,Mills matchup omitted — Mills dropped out Apr 30.
+ME_QI_030326_a,Maine,ME,Platner,Susan Collins,49,42,9,400,Quantus Insights,1.5,False,2026-03-03,2026-03-05,Online panel,Mills matchup omitted — Mills dropped out Apr 30.
+ME_PA_021326_a,Maine,ME,Platner,Susan Collins,44,40,16,500,Pan Atlantic SMS Group,2.0,False,2026-02-13,2026-03-02,SMS,Mills matchup omitted — Mills dropped out Apr 30.
+NC_HARP_051126,North Carolina,NC,Cooper,Whatley,50,39,11,600,Harper Polling,1.5,False,2026-05-10,2026-05-11,Online panel,Carolina Journal sponsor. n estimated.
+NC_CR_050826,North Carolina,NC,Cooper,Whatley,49,42,9,600,Change Research,1.5,True,2026-05-04,2026-05-08,Online panel,Carolina Forward — Democratic sponsor. n estimated.
+NC_OD_042426_a,North Carolina,NC,Cooper,Whatley,50,41,9,500,Opinion Diagnostics,1.5,False,2026-04-21,2026-04-24,Online panel,No sponsor. Likely LV screen. n estimated.
+NC_OD_042426_b,North Carolina,NC,Cooper,Whatley,50,41,9,500,Opinion Diagnostics,1.5,False,2026-04-21,2026-04-24,Online panel,No sponsor. Likely RV screen — duplicate entry on NYT. n estimated.
+NC_HPU_040626,North Carolina,NC,Cooper,Whatley,50,42,8,700,High Point University,2.0,False,2026-03-26,2026-04-06,Online panel,Academic NC poll. n estimated.
+NC_QI_040126,North Carolina,NC,Cooper,Whatley,49,44,7,400,Quantus Insights,1.5,False,2026-03-31,2026-04-01,Online panel,No sponsor. n estimated.
+NC_HARP_032326,North Carolina,NC,Cooper,Whatley,49,41,10,600,Harper Polling,1.5,False,2026-03-22,2026-03-23,Online panel,Carolina Journal sponsor. n estimated.
+NC_YG_031826,North Carolina,NC,Cooper,Whatley,48,34,18,1000,YouGov,2.5,False,2026-03-09,2026-03-18,Online panel,Catawba College Center for NC Politics sponsor. n estimated.
+NC_PPP_031426,North Carolina,NC,Cooper,Whatley,47,44,9,800,Public Policy Polling,2.0,False,2026-03-13,2026-03-14,IVR/Online,No explicit partisan sponsor listed. n estimated.
+GA_EI_040326_a,Georgia,GA,Ossoff,Buddy Carter,52,43,5,600,Echelon Insights,2.5,False,2026-04-03,2026-04-09,Online panel,NetChoice sponsored. R primary unsettled — Carter matchup.
+GA_EI_040326_b,Georgia,GA,Ossoff,Doug Collins,51,44,5,600,Echelon Insights,2.5,False,2026-04-03,2026-04-09,Online panel,NetChoice sponsored. R primary unsettled — Collins matchup.
+GA_EC_022826_a,Georgia,GA,Ossoff,Dooley,49,41,10,600,Emerson College,2.5,False,2026-02-28,2026-03-02,Online panel,Nexstar sponsored. R primary unsettled — Dooley matchup.
+GA_EC_022826_b,Georgia,GA,Ossoff,Doug Collins,48,43,9,600,Emerson College,2.5,False,2026-02-28,2026-03-02,Online panel,Nexstar sponsored. R primary unsettled — Collins matchup.
+GA_EC_022826_c,Georgia,GA,Ossoff,Buddy Carter,47,44,9,600,Emerson College,2.5,False,2026-02-28,2026-03-02,Online panel,Nexstar sponsored. R primary unsettled — Carter matchup.
+GA_QI_090925_a,Georgia,GA,Ossoff,Buddy Carter,40,37,23,400,Quantus Insights,1.5,False,2025-09-09,2025-09-12,Online panel,No sponsor. R primary unsettled — Carter matchup.
+GA_QI_090925_b,Georgia,GA,Ossoff,Dooley,42,35,23,400,Quantus Insights,1.5,False,2025-09-09,2025-09-12,Online panel,No sponsor. R primary unsettled — Dooley matchup.
+GA_QI_090925_c,Georgia,GA,Ossoff,Doug Collins,38,38,24,400,Quantus Insights,1.5,False,2025-09-09,2025-09-12,Online panel,No sponsor. R primary unsettled — Collins matchup.
+IA_EI_040926_w,Iowa,IA,Wahls,Ashley Hinson,46,44,10,800,Echelon Insights,2.5,False,2026-04-03,2026-04-09,Online panel,NetChoice sponsor. Wahls matchup. n estimated.
+IA_EI_040926_t,Iowa,IA,Turek,Ashley Hinson,46,45,9,800,Echelon Insights,2.5,False,2026-04-03,2026-04-09,Online panel,NetChoice sponsor. Turek matchup. n estimated.
+IA_GBAO_031626_t,Iowa,IA,Turek,Ashley Hinson,43,47,10,600,GBAO,2.0,True,2026-03-10,2026-03-16,Online panel,ModSquad — Democratic sponsor. Turek matchup. n estimated.
+IA_GBAO_031626_w,Iowa,IA,Wahls,Ashley Hinson,44,47,9,600,GBAO,2.0,True,2026-03-10,2026-03-16,Online panel,ModSquad — Democratic sponsor. Wahls matchup. n estimated.
+IA_CR_011126_s,Iowa,IA,Sage,Ashley Hinson,41,44,15,500,Change Research,1.5,False,2026-01-08,2026-01-11,Online panel,No sponsor. Sage matchup. n estimated.
+IA_CR_011126_t,Iowa,IA,Turek,Ashley Hinson,41,44,15,500,Change Research,1.5,False,2026-01-08,2026-01-11,Online panel,No sponsor. Turek matchup. n estimated.
+IA_CR_011126_w,Iowa,IA,Wahls,Ashley Hinson,41,44,15,500,Change Research,1.5,False,2026-01-08,2026-01-11,Online panel,No sponsor. Wahls matchup. n estimated.
+TX_BJPP_050626_p,Texas,TX,Talarico,Paxton,45,45,10,800,Barbara Jordan Public Policy Research and Survey Center,2.0,False,2026-04-22,2026-05-06,Online panel,n estimated. Talarico vs Paxton matchup.
+TX_BJPP_050626_c,Texas,TX,Talarico,Cornyn,44,45,11,800,Barbara Jordan Public Policy Research and Survey Center,2.0,False,2026-04-22,2026-05-06,Online panel,n estimated. Talarico vs Cornyn matchup.
+TX_YUTX_042026_p,Texas,TX,Talarico,Paxton,42,34,24,1200,YouGov,2.5,False,2026-04-10,2026-04-20,Online panel,University of Texas sponsor. n estimated. Talarico vs Paxton matchup.
+TX_YUTX_042026_c,Texas,TX,Talarico,Cornyn,40,33,27,1200,YouGov,2.5,False,2026-04-10,2026-04-20,Online panel,University of Texas sponsor. n estimated. Talarico vs Cornyn matchup.
+TX_SLNG_042026_p,Texas,TX,Talarico,Paxton,46,41,13,600,Slingshot Strategies,1.5,False,2026-04-17,2026-04-20,Online panel,Texas Public Opinion Research sponsor. n estimated. Talarico vs Paxton matchup.
+TX_SLNG_042026_c,Texas,TX,Talarico,Cornyn,44,41,15,600,Slingshot Strategies,1.5,False,2026-04-17,2026-04-20,Online panel,Texas Public Opinion Research sponsor. n estimated. Talarico vs Cornyn matchup.
+TX_IMPR_031726_p,Texas,TX,Talarico,Paxton,44,43,13,700,Impact Research,2.0,True,2026-03-12,2026-03-17,Online panel,James Talarico campaign — Democratic sponsor. n estimated. Talarico vs Paxton matchup.
+TX_IMPR_031726_c,Texas,TX,Talarico,Cornyn,43,41,16,700,Impact Research,2.0,True,2026-03-12,2026-03-17,Online panel,James Talarico campaign — Democratic sponsor. n estimated. Talarico vs Cornyn matchup.
+TX_PPP_030526_p,Texas,TX,Talarico,Paxton,47,45,8,800,Public Policy Polling,2.0,True,2026-03-04,2026-03-05,IVR/Online,Senate Majority PAC — Democratic sponsor. n estimated. Talarico vs Paxton matchup.
+TX_PPP_030526_c,Texas,TX,Talarico,Cornyn,44,43,13,800,Public Policy Polling,2.0,True,2026-03-04,2026-03-05,IVR/Online,Senate Majority PAC — Democratic sponsor. n estimated. Talarico vs Cornyn matchup.
+GA_TI_072825_a,Georgia,GA,Ossoff,Dooley,45,42,13,600,TIPP Insights,2.0,True,2025-07-28,2025-08-01,Online panel,League of American Workers sponsored — Republican sponsor. Dooley matchup.
+GA_TI_072825_b,Georgia,GA,Ossoff,Buddy Carter,45,43,12,600,TIPP Insights,2.0,True,2025-07-28,2025-08-01,Online panel,League of American Workers sponsored — Republican sponsor. Carter matchup.
+GA_TI_072825_c,Georgia,GA,Ossoff,Doug Collins,45,44,11,600,TIPP Insights,2.0,True,2025-07-28,2025-08-01,Online panel,League of American Workers sponsored — Republican sponsor. Collins matchup.
+OH_BGSU_040726_a,Ohio,OH,Brown,Jon Husted,47,50,3,800,BGSU/YouGov,2.5,False,2026-04-07,2026-04-14,Online panel,BGSU Democracy & Public Policy Research Network/YouGov partnership. No sponsor.
+OH_EI_040326_a,Ohio,OH,Brown,Jon Husted,45,51,4,600,Echelon Insights,2.5,False,2026-04-03,2026-04-09,Online panel,NetChoice sponsored.
+OH_QI_031326_a,Ohio,OH,Brown,Jon Husted,44,46,10,400,Quantus Insights,1.5,False,2026-03-13,2026-03-14,Online panel,No sponsor.
+OH_OM_030326_a,Ohio,OH,Brown,Jon Husted,47,45,8,600,OnMessage Inc.,2.0,True,2026-03-03,2026-03-08,Phone/IVR,Insurance Watchdog Coalition sponsored. OnMessage is a Republican firm — partisan discount applied.
+OH_EMC_021026_a,Ohio,OH,Brown,Jon Husted,51,47,2,600,EMC Research,2.0,True,2026-02-10,2026-02-22,Online panel,Ohio Environmental Council sponsored — D-aligned group. Partisan discount applied.
+OH_EC_120625_a,Ohio,OH,Brown,Jon Husted,46,49,5,600,Emerson College,2.5,False,2025-12-06,2025-12-08,Online panel,No sponsor.
+OH_BGSU_100225_a,Ohio,OH,Brown,Jon Husted,49,48,3,800,BGSU/YouGov,2.5,False,2025-10-02,2025-10-14,Online panel,BGSU Democracy & Public Policy Research Network/YouGov partnership. No sponsor.
+OH_EC_081825_a,Ohio,OH,Brown,Jon Husted,44,50,6,600,Emerson College,2.5,False,2025-08-18,2025-08-19,Online panel,No sponsor.
+OH_BGSU_041825_a,Ohio,OH,Brown,Jon Husted,46,49,5,800,BGSU/YouGov,2.5,False,2025-04-18,2025-04-24,Online panel,BGSU Democracy & Public Policy Research Network/YouGov partnership. No sponsor.
+FL_CHNG_051626,Florida,FL,Alex Vindman,Ashley Moody,47,45,8,900,Change Research,1.8,False,2026-05-13,2026-05-16,Online panel,Freedom Project USA sponsor.
+FL_CHRY_050926,Florida,FL,Alex Vindman,Ashley Moody,40,48,12,700,Cherry Communications,1.5,True,2026-05-01,2026-05-09,IVR/Online,Florida Chamber of Commerce — Republican sponsor.
+FL_STET_041326,Florida,FL,Alex Vindman,Ashley Moody,42,49,9,800,Stetson University Center for Public Opinion Research,2.0,False,2026-03-25,2026-04-13,Live phone,
+FL_ECHO_040926,Florida,FL,Alex Vindman,Ashley Moody,43,50,7,800,Echelon Insights,2.2,False,2026-04-03,2026-04-09,Online panel,NetChoice sponsor.
+FL_MDW_040326,Florida,FL,Alex Vindman,Ashley Moody,42,43,15,600,MDW Communications,1.5,False,2026-03-27,2026-04-03,IVR/Online,EDGE Communications sponsor.
+FL_PPP_040326,Florida,FL,Alex Vindman,Ashley Moody,40,43,17,800,Public Policy Polling,2.0,True,2026-04-02,2026-04-03,IVR/Online,Alexander Vindman campaign — Democratic sponsor.
+FL_EMRS_033126,Florida,FL,Alex Vindman,Ashley Moody,38,46,16,700,Emerson College,2.2,False,2026-03-29,2026-03-31,IVR/Online,
+ASR_AK_0419,Alaska,AK,Peltola,Sullivan,49,43,8,600,Alaska Survey Research,2.3,FALSE,2026-04-16,2026-04-19,Live phone,H2H_SULLIVAN
+ASR_AK_0322,Alaska,AK,Peltola,Sullivan,49,44,7,600,Alaska Survey Research,2.3,FALSE,2026-03-19,2026-03-22,Live phone,H2H_SULLIVAN
+PPP_AK_0117,Alaska,AK,Peltola,Sullivan,49,47,4,700,Public Policy Polling,2.6,TRUE,2026-01-16,2026-01-17,IVR/Online,H2H_SULLIVAN. DSCC sponsor.
+ASR_AK_0111,Alaska,AK,Peltola,Sullivan,48,46,6,600,Alaska Survey Research,2.3,FALSE,2026-01-08,2026-01-11,Live phone,H2H_SULLIVAN
+TYSON_AK_1113,Alaska,AK,Peltola,Sullivan,43,39,18,600,The Tyson Group,1.8,FALSE,2025-11-11,2025-11-13,Online,H2H_SULLIVAN. Plymouth Union Public Advocacy sponsor.
+DFP_AK_1023,Alaska,AK,Peltola,Sullivan,46,45,9,700,Data for Progress,2.6,TRUE,2025-10-17,2025-10-23,Online,H2H_SULLIVAN. D-aligned firm.
+ASR_AK_1015,Alaska,AK,Peltola,Sullivan,48,46,6,600,Alaska Survey Research,2.3,FALSE,2025-10-10,2025-10-15,Live phone,H2H_SULLIVAN
+ASR_AK_0801,Alaska,AK,Peltola,Sullivan,43,47,10,600,Alaska Survey Research,2.3,FALSE,2025-07-29,2025-08-01,Live phone,H2H_SULLIVAN
+DFP_AK_0727,Alaska,AK,Peltola,Sullivan,45,46,9,700,Data for Progress,2.6,TRUE,2025-07-21,2025-07-27,Online,H2H_SULLIVAN. D-aligned firm.
+ASR_AK_0425_23,Alaska,AK,Peltola,Sullivan,44,41,15,600,Alaska Survey Research,2.3,FALSE,2023-04-21,2023-04-25,Live phone,H2H_SULLIVAN. Early-cycle poll (2023).
+NH_UNH_042126_s,New Hampshire,NH,Chris Pappas,John Sununu,49,42,9,500,University of New Hampshire,2.6,False,2026-04-17,2026-04-21,Live phone,
+NH_EMRS_032326_s,New Hampshire,NH,Chris Pappas,John Sununu,45,44,11,600,Emerson College,2.2,False,2026-03-21,2026-03-23,IVR/Online,
+NH_STAN_031826_s,New Hampshire,NH,Chris Pappas,John Sununu,46,43,11,500,St. Anselm College,2.2,False,2026-03-16,2026-03-18,Live phone,
+NH_YEKF_012926_s,New Hampshire,NH,Chris Pappas,John Sununu,45,41,14,500,yes. every kid. foundation.,1.5,False,2026-01-28,2026-01-29,Online panel,yes. every kid. foundation. sponsor.
+NH_UNH_011926_s,New Hampshire,NH,Chris Pappas,John Sununu,50,45,5,500,University of New Hampshire,2.6,False,2026-01-15,2026-01-19,Live phone,
+ME_PAR_051826_a,Maine,ME,Platner,Susan Collins,48,41,11,827,Pan Atlantic Research,2.0,False,2026-05-08,2026-05-18,Online panel,Self-funded Omnibus poll (69th). Dynata panel weighted by CD/age/edu/gender. n=827 LV. MoE ±3.7%.

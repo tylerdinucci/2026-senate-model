@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
+import matplotlib.colors as mc
 from pathlib import Path
 
 
@@ -62,30 +63,44 @@ def setup_ax(ax):
     ax.axis('off')
 
 
+def _luminance(color_rgba):
+    """Relative luminance of an RGBA tuple (0–1 each)."""
+    r, g, b = color_rgba[:3]
+    def lin(c):
+        return c/12.92 if c <= 0.04045 else ((c+0.055)/1.055)**2.4
+    return 0.2126*lin(r) + 0.7152*lin(g) + 0.0722*lin(b)
+
+
+def _text_color(bg_rgba):
+    """Return white or near-black for max contrast against bg."""
+    return 'white' if _luminance(bg_rgba) < 0.35 else '#1A1A1A'
+
+
 def draw_tile(ax, state, color, label_color, abbr, val_str='',
               border_color='white', border_w=0.8):
     if state not in GRID:
         return
     ci, ri = GRID[state]
     rect = mpatches.FancyBboxPatch(
-        (ci+0.05, ri+0.05), 0.88, 0.88,
-        boxstyle='round,pad=0.04',
+        (ci+0.04, ri+0.04), 0.90, 0.90,
+        boxstyle='round,pad=0.05',
         facecolor=color, edgecolor=border_color,
         linewidth=border_w, zorder=2
     )
     ax.add_patch(rect)
-    ax.text(ci+0.49, ri+0.40, abbr,
-            ha='center', va='center', fontsize=6.2,
+    y_abbr = ri + (0.40 if val_str else 0.49)
+    ax.text(ci+0.49, y_abbr, abbr,
+            ha='center', va='center', fontsize=9.5,
             fontweight='bold', color=label_color, zorder=3)
     if val_str:
         ax.text(ci+0.49, ri+0.68, val_str,
                 ha='center', va='center',
-                fontsize=5.0, color=label_color, zorder=3)
+                fontsize=7.5, fontweight='bold', color=label_color, zorder=3)
 
 
 # ── CHART 1: SENATE RATINGS MAP ────────────────────────────────────────────────
 def chart_senate_ratings(race_results, sim, oop_result, out_dir):
-    fig, ax = plt.subplots(figsize=(12, 6.5))
+    fig, ax = plt.subplots(figsize=(15, 8))
     fig.patch.set_facecolor(BG)
     ax.set_facecolor(BG)
     setup_ax(ax)
@@ -95,12 +110,14 @@ def chart_senate_ratings(race_results, sim, oop_result, out_dir):
     for state in GRID:
         if state in race_results:
             r = race_results[state]
-            color = RATING_COLS.get(r['rating'], '#D4D4D4')
+            hex_col = RATING_COLS.get(r['rating'], '#D4D4D4')
+            color = hex_col
+            lc = _text_color(mc.to_rgba(hex_col))
             prob = r['d_prob']
             val = f"{prob*100:.0f}%" if 0.02 < prob < 0.98 else ''
-            draw_tile(ax, state, color, 'white', state, val, 'white', 0.7)
+            draw_tile(ax, state, color, lc, state, val, 'white', 0.7)
         else:
-            draw_tile(ax, state, '#D4D4D4', '#999999', state, '', 'white', 0.5)
+            draw_tile(ax, state, '#D4D4D4', '#666666', state, '', 'white', 0.5)
 
     # Legend
     leg_items = [
@@ -238,10 +255,15 @@ def chart_demo_shifts(demo_shifts, catalist_baselines, out_dir):
     ax.axvline(0, color='#334155', linewidth=1.0)
 
     for i, (v, label) in enumerate(zip(shifts, group_labels)):
-        ha = 'left' if v >= 0 else 'right'
-        ax.text(v + (0.15 if v >= 0 else -0.15), i,
-                f'{v:+.1f}pp', va='center', ha=ha, fontsize=9,
-                color='#334155')
+        if v >= 0:
+            ax.text(v + 0.15, i, f'{v:+.1f}pp',
+                    va='center', ha='left', fontsize=9, color='#334155')
+        else:
+            # Place label inside the bar (from left edge rightward) so it
+            # never collides with the y-axis tick labels
+            ax.text(v + 0.15, i, f'{v:+.1f}pp',
+                    va='center', ha='left', fontsize=9, color='white',
+                    fontweight='bold')
 
     ax.set_yticks(list(y_pos))
     ax.set_yticklabels(group_labels, fontsize=10.5, color='#0D1B3E')
@@ -266,7 +288,7 @@ def chart_demo_shifts(demo_shifts, catalist_baselines, out_dir):
 
 # ── CHART 4: STATE ENVIRONMENT MAP ─────────────────────────────────────────────
 def chart_state_environment(state_envs, race_results, oop_result, out_dir):
-    fig, ax = plt.subplots(figsize=(12, 6.5))
+    fig, ax = plt.subplots(figsize=(15, 8))
     fig.patch.set_facecolor(BG)
     ax.set_facecolor(BG)
     setup_ax(ax)
@@ -281,7 +303,7 @@ def chart_state_environment(state_envs, race_results, oop_result, out_dir):
             draw_tile(ax, state, '#D4D4D4', '#999999', state, '')
             continue
         color = gcb_color(gcb, -45, 45)
-        lc = 'white' if abs(gcb) > 15 else '#0D1B3E'
+        lc = _text_color(mc.to_rgba(color))
         bc = '#FFD700' if state in senate_states else 'white'
         bw = 2.2 if state in senate_states else 0.7
         draw_tile(ax, state, color, lc, state, f'{gcb:+.0f}', bc, bw)

@@ -62,7 +62,6 @@ SENATE_RACES_2026 = [
     ('WA', 'D', 'Maria Cantwell',    'TBD',                  False),
     ('WV', 'R', 'TBD',               'Shelley Moore Capito', False),
     ('WY', 'R', 'TBD',               'TBD',                  False),
-    ('NV', 'D', 'TBD',               'TBD',                  False),
 ]
 
 

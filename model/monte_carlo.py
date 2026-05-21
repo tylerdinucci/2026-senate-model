@@ -81,6 +81,16 @@ def run_simulation(race_results, oop_result, config, seed=None):
 
     # Draw correlated margins: shape (n_sims, n_comp)
     draws = np.random.multivariate_normal(centrals, cov_psd, n_sims)
+
+    # National GCB environment shock: represents uncertainty about whether the
+    # projected election-day GCB (e.g. D+7.73) actually materializes.
+    # Applied identically to all states — a fully correlated national tide shift.
+    # gcb_national_sigma in config controls the width; empirically the GCB at
+    # 6 months out has ~3-4pp std dev vs. the final result.
+    gcb_national_sigma = float(sim_cfg.get('gcb_national_sigma', 3.5))
+    national_shock = np.random.normal(0, gcb_national_sigma, n_sims)
+    draws = draws + national_shock[:, np.newaxis]
+
     comp_wins = (draws > 0).astype(int)  # shape (n_sims, n_comp)
 
     # Non-competitive states: independent draws

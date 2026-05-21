@@ -18,22 +18,48 @@ oop:
     - [2018, +0.8]   # D OOP. Anti-Trump.
     - [2022, +0.4]   # R OOP. Dobbs softened wave.
 
+# ── LAYER 2: DOWNBALLOT LAG AUTO-OVERRIDE ─────────────────────────────────────
+# States where |house_2024 - pres_2024| > threshold get baseline replaced with
+# 2-cycle presidential average. Fixes redistricting/incumbency artifacts that
+# make the House popular vote an unreliable Senate proxy (e.g. GA, ME, NH).
+# Manual catalist_state_overrides below take precedence over this rule.
+downballot_lag:
+  enabled: true
+  threshold_pp: 2.5
+
 # ── LAYER 2: CATALIST STATE OVERRIDES ─────────────────────────────────────────
-# For states where the MIT House data is unrepresentative (single at-large seat,
-# all-uncontested, or H2H race that diverges from statewide lean), override
-# the catalist baseline with the actual 2024 presidential/statewide margin.
-# AK: Peltola won 1 contested at-large seat (-1.05), but Trump won AK by ~8.
+# For states where the MIT House data is unrepresentative, override with the
+# 2-cycle presidential average (2020+2024)/2. Triggered when >20% of districts
+# are uncontested AND the baseline deviates >5pp from the presidential average.
+# AK: single at-large seat (Peltola result ≠ statewide lean).
 # VT/ND: all uncontested (no MIT margin computed).
+# MN: 5/8 districts uncontested — contested-only avg (+31.9) wildly skewed.
+# MA: 7/9 districts uncontested — contested-only avg too low vs true D lean.
+# AL: 3/7 districts uncontested — contested safe-R seats excluded, baseline too D.
+# NV: 1/4 districts uncontested — baseline +6.1 vs true environment near even.
+# FL: 1/28 district uncontested (FL-20, Cherfilus-McCormick, D+39.6 pres). MIT contested-only avg is R+15.86.
+#     Simulated statewide GCB including FL-20 via presidential proportions (Harris/Trump votes as proxy):
+#     27-district contested total (pres proxy T=10,593,821) at R+15.86 → D-R=-1,680,180
+#     FL-20 simulated (207,864 D / 89,156 R, T=299,724) → D-R=+118,708
+#     Combined: -1,561,472 / 10,893,545 = R+14.33pp
+#     Also reflects Cuban-American downballot lag in FL-26/FL-27/FL-28 that makes contested-only avg unrepresentative.
 catalist_state_overrides:
-  AK: -9.1    # 2-cycle avg (2020: -10.1, 2024: -8.1); Peltola House result not a state baseline
-  VT: +32.1   # all uncontested House seats; use statewide estimate
-  ND: -37.1   # all uncontested House seats; use statewide estimate
+  AK: -11.6   # 2-cycle pres avg (2020: -10.1, 2024: -13.1)
+  VT: +32.1   # all uncontested; 2-cycle pres avg (2020: +35.4, 2024: +28.7)
+  ND: -37.1   # all uncontested; 2-cycle pres avg (2020: -33.1, 2024: -41.0)
+  MN: +5.0    # 62% uncontested; 2-cycle pres avg (2020: +7.1, 2024: +2.8)
+  MA: +30.9   # 78% uncontested; 2-cycle pres avg (2020: +33.5, 2024: +28.4)
+  AL: -26.4   # 43% uncontested; 2-cycle pres avg (2020: -25.5, 2024: -27.2)
+  NV: -0.3    # 25% uncontested; 2-cycle pres avg (2020: +2.4, 2024: -3.0)
+  PA: -2.1    # MIT contested-district avg (-7.45) vs actual 2024 statewide House vote (R+2.1pp per Wikipedia)
+  FL: -14.33  # MIT contested-only (R+15.86) excludes FL-20 (D+39.6 pres, uncontested); simulated statewide R+14.33
 
 # ── LAYER 2: CATALIST 2024 BASELINES ──────────────────────────────────────────
 # DO NOT EDIT. These are 2024 actuals. Fixed anchor for all shift calculations.
 # New poll data goes into data/national_crosstabs.csv — not here.
 catalist_2024:
   national_gcb: -3.06         # 2024 House popular vote D margin — R won
+  national_pres: -1.50        # 2024 presidential D margin — Trump won by ~1.5pp
   group_d_share:              # D vote share by group, 2024 actual
     white_nc:      0.360
     white_college: 0.502
@@ -63,7 +89,7 @@ race_model:
   primary_extra_sigma:
     ME: 0.5   # Platner clear nominee after Mills suspended Apr 30; June 9 primary vs Costello
     MI: 1.5   # Nasty 3-way D primary Aug 4
-    TX: 1.5   # Cornyn vs Paxton runoff May 26
+    TX: 0.5   # Paxton heavy favorite after Trump endorsement; runoff May 26
     MN: 0.0
 
   # WAR adjustments — adjusted values with haircuts applied
@@ -71,23 +97,27 @@ race_model:
   war:
     NC: {d: +3.0, r:  0.0}   # Cooper — governor race proxy
     GA: {d: +3.5, r:  0.0}   # Ossoff — Jan 5 runoff haircut applied
-    ME: {d:  0.0, r: +10.0}  # Collins — polarization compression applied
+    ME: {d:  0.0, r: +8.0}   # Collins — WAR trimmed from +10 to +8; independent crossover collapsed (35% vs 57% in 2020); degradation trend
     AK: {d: +3.0, r:  +1.5}  # Peltola — House vs Palin RCV haircut applied
     OH: {d: +4.0, r:  0.0}   # Brown — most consistent overperformer
     IA: {d:  0.0, r:  +2.0}  # Hinson — partial statewide credit
-    TX: {d:  0.0, r:  -1.4}  # probability-weighted Cornyn/Paxton
+    TX: {d:  0.0, r:  -1.9}  # probability-weighted Cornyn/Paxton (0.08×0 + 0.92×-2.1; Paxton indictment baggage)
     NE: {d: +8.0, r:  0.0}   # Osborn personal brand
     NH: {d:  0.0, r:  -1.0}
     MN: {d: +1.5, r:  -1.0}
     MI: {d:  0.0, r:  0.0}
     FL: {d:  0.0, r:  0.0}
+    SC: {d:  0.0, r: +3.0}  # Graham — 2020 overperformance vs Harrison (+3.7pp); haircut for Harrison's anomalous $130M
 
   # Primary scenario probabilities — update config when primaries resolve
   primary_priors:
     ME_platner: 1.00   # Mills suspended Apr 30 — Platner is clear D nominee
     ME_mills:   0.00
-    TX_paxton:  0.68
-    TX_cornyn:  0.32
+    TX_paxton:  0.92   # Trump endorsed Paxton 2026-05-18
+    TX_cornyn:  0.08
+    MI_elsayed:  0.333  # 3-way D primary Aug 4 — equal priors until primary polling available
+    MI_mcmorrow: 0.333
+    MI_stevens:  0.333
 
   # Component weights by poll count bucket.
   # war + fund must sum to < 1.0; remainder is split env/poll by blending module.
@@ -117,7 +147,20 @@ race_model:
 simulation:
   n_sims: 100000
   seed: 42
-  d_seats_not_up: 34
+  # National GCB environment shock: std dev (pp) of uncertainty about whether
+  # the projected election-day GCB actually materializes. Applied as a fully
+  # correlated shift to all state margins each simulation draw.
+  #
+  # Empirical basis (spring GCB vs. final House popular vote, modern midterms):
+  #   All cycles 2006-2022:    mean=-4.5pp  SD=5.7pp
+  #   D-OOP only (2006,2018):  mean=-0.7pp  SD=3.5pp  ← most analogous to 2026
+  #   Silver Bulletin Jan r=0.53 → May MOE ~±4.3pp
+  #   2026 comparable to 2018 at same point (D+6.8 → finished D+8.6, minimal reversion)
+  #   Tail risk: 2010-style +11pp adverse swing captured at ~1.5σ
+  #
+  # Decrease toward ~2.0pp as October approaches and the GCB stabilizes.
+  gcb_national_sigma: 4.5
+  d_seats_not_up: 32
   majority_threshold: 51
   national_baseline_correlation: 0.65
   correlations:

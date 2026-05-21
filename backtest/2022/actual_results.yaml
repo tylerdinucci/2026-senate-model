@@ -1,0 +1,39 @@
+# 2022 Senate actual D margins (positive = D won, negative = R won)
+# Source: official certified results
+results:
+  AK: -14.2   # Murkowski (R) won under RCV
+  AL: -38.8   # Britt (R)
+  AR: -27.8   # Boozman (R)
+  AZ:  +4.9   # Kelly (D) — model prediction OK
+  CA: +18.9   # Padilla (D)
+  CO: +13.8   # Bennet (D)
+  CT: +15.4   # Blumenthal (D)
+  FL: -16.5   # Rubio (R) — model should show Safe R
+  GA:  +2.8   # Warnock (D) won runoff Dec 6 — model might show tossup
+  HI: +33.1   # Schatz (D)
+  IA: -26.9   # Grassley (R)
+  ID: -37.7   # Crapo (R)
+  IL: +14.1   # Duckworth (D)
+  KS: -23.4   # Moran (R)
+  KY: -21.6   # Paul (R)
+  LA: -25.5   # Kennedy (R)
+  MD: +28.1   # Van Hollen (D)
+  MO: -13.4   # Schmitt (R)
+  NC:  -3.2   # Budd (R)
+  ND: -33.6   # Hoeven (R)
+  NH:  +9.3   # Hassan (D) — model should show Safe/Likely D
+  NV:  +0.8   # CCM (D) — model should show tossup
+  NY: +14.8   # Schumer (D)
+  OH:  -6.2   # Vance (R) — model should show Lean R
+  OK: -27.9   # Lankford (R)
+  OR: +17.8   # Wyden (D)
+  PA:  +4.9   # Fetterman (D) — model should show Lean D
+  SC: -27.0   # Scott (R)
+  SD: -25.8   # Thune (R)
+  UT: -10.5   # Lee (R)
+  VT: +41.1   # Welch (D)
+  WA: +15.5   # Murray (D)
+  WI:  -1.0   # Johnson (R) — model should show near-tossup
+
+# Net result: D +1 seat (PA flip). D caucus: 48D + 3I = 51.
+# D majority reached after Warnock runoff Dec 6.

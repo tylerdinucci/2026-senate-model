@@ -168,7 +168,7 @@ def save_results(oop, demo, state_envs, race_results, sim, config, args):
             for abbr, r in race_results.items()
         },
         'demographic_shifts': {
-            g: {'shift': d['shift'], 'current': d['current_d_share']}
+            g: {'shift': d['shift'], 'current': d['current_d_share'], 'n_entries': d['n_entries']}
             for g, d in demo.items()
         }
     }
