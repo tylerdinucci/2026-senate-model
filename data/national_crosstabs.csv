@@ -43,3 +43,8 @@ EC042926_04,Emerson College Polling,2.5,2026-04-25,2026-04-29,1000,total,gcb_d_s
 5FE8C9A7_05,Echelon Insights,2.0,2026-05-14,2026-05-18,1008,youth_18_29,gcb_d_share,0.59,18-34 bracket proxy for 18-29
 5FE8C9A7_06,Echelon Insights,2.0,2026-05-14,2026-05-18,1008,seniors_65p,gcb_d_share,0.49,
 5FE8C9A7_07,Echelon Insights,2.0,2026-05-14,2026-05-18,1008,total,gcb_d_share,0.51,
+DFP051826_00,Data for Progress,2.0,2026-05-15,2026-05-18,1149,white_nc,gcb_d_share,0.5000,No College all-race proxy (47D/47R). White×edu not split. DFP May 2026 Omnibus Q3.
+DFP051826_01,Data for Progress,2.0,2026-05-15,2026-05-18,1149,white_college,gcb_d_share,0.6105,College all-race proxy (58D/37R). White×edu not split. DFP May 2026 Omnibus Q3.
+DFP051826_02,Data for Progress,2.0,2026-05-15,2026-05-18,1149,hispanic,gcb_d_share,0.6837,Two-party D/(D+R). 67D/31R Latino crosstab. DFP May 2026 Omnibus Q3.
+DFP051826_03,Data for Progress,2.0,2026-05-15,2026-05-18,1149,black,gcb_d_share,0.8333,Two-party D/(D+R). 80D/16R Black or African American crosstab. DFP May 2026 Omnibus Q3.
+DFP051826_04,Data for Progress,2.0,2026-05-15,2026-05-18,1149,total,gcb_d_share,0.5426,Two-party D/(D+R). 51D/43R topline. LV screen + recalled vote weighted. DFP May 2026 Omnibus Q3.

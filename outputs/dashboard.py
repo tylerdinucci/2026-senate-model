@@ -217,8 +217,11 @@ if gcb_polls_scatter is not None and len(gcb_polls_scatter) > 0:
 else:
     poll_chart = alt.Chart(pd.DataFrame({'enddate': [], 'adjusted_net': []})).mark_circle()
 
-# Continuous trend line — uses full history so early window has enough polls
+# Continuous trend line — uses full history for computation (stable window),
+# then clips display to 2026-01-01 so the pre-cycle rise doesn't show
 trend_df = compute_gcb_trend(gcb_polls_all)
+if len(trend_df) > 0:
+    trend_df = trend_df[trend_df['date'] >= pd.Timestamp('2026-01-01')]
 if len(trend_df) > 0:
     trend_line = (
         alt.Chart(trend_df)
