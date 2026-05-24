@@ -210,7 +210,7 @@ if gcb_polls_scatter is not None and len(gcb_polls_scatter) > 0:
                 [alt.Tooltip('pollster:N', title='Pollster'),
                  alt.Tooltip('enddate:T', title='Date', format='%b %d %Y'),
                  alt.Tooltip('adjusted_net:Q', title='Adj. Net', format='+.1f')]
-                + ([alt.Tooltip('samplesize:Q', title='n=')] if 'samplesize' in gcb_polls.columns else [])
+                + ([alt.Tooltip('samplesize:Q', title='n=')] if 'samplesize' in gcb_polls_scatter.columns else [])
             ),
         )
     )
