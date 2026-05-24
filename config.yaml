@@ -133,11 +133,13 @@ race_model:
       fund: 0.03
     state_weight_overrides: {}  # per-state overrides added as needed
 
-  # Dynamic blending: environment weight decays with time AND poll count
+  # Dynamic blending: environment weight decays with time ONLY (poll count ignored)
+  # All races use the same env/poll split at the same point in time.
+  # env_weight = base × (days_remaining / 193)^power
   blending:
-    base_env_weight:  0.80   # env weight at day 193 with 0 polls
-    poll_threshold:   10     # polls where env/poll weight roughly equalizes
-    time_decay_power: 0.50   # sqrt decay
+    base_env_weight:  0.80   # env weight at day 193 (starting point)
+    poll_threshold:   10     # unused — kept for backtest compatibility
+    time_decay_power: 0.50   # sqrt decay — reaches ~50% env at ~halfway point
     state_overrides:
       AK: {base_env_weight: 0.55}
       TX: {base_env_weight: 0.60}

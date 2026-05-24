@@ -27,7 +27,10 @@ _GCB_CSV_URL = (
 
 @st.cache_data(ttl=3600)
 def load_gcb_polls():
-    """Fetch raw Silver Bulletin GCB CSV — individual polls."""
+    """Fetch raw Silver Bulletin GCB CSV — returns (all_polls, scatter_polls).
+    all_polls: full history for trend computation (needs deep window at start).
+    scatter_polls: 2026-cycle only for display dots.
+    """
     try:
         resp = requests.get(_GCB_CSV_URL, timeout=15)
         resp.raise_for_status()
@@ -36,12 +39,14 @@ def load_gcb_polls():
         df['enddate'] = pd.to_datetime(df['enddate'], errors='coerce')
         df['adjusted_net'] = pd.to_numeric(df['adjusted_net'], errors='coerce')
         df = df.dropna(subset=['enddate', 'adjusted_net'])
-        # Filter to 2026 cycle
-        df = df[df['enddate'] >= pd.Timestamp('2025-11-01')]
         df = df.sort_values('enddate')
-        return df
+        # All polls for trend (full history so early window has enough polls)
+        all_polls = df.copy()
+        # Scatter dots: 2026 cycle only (Jan 1 2026 onwards — avoids pre-cycle clutter)
+        scatter_polls = df[df['enddate'] >= pd.Timestamp('2026-01-01')].copy()
+        return all_polls, scatter_polls
     except Exception:
-        return None
+        return None, None
 
 
 _GCB_GRADES = {
@@ -74,7 +79,7 @@ def compute_gcb_trend(polls_df, half_life=30, window=60, step_days=3):
         df_w = polls_df.copy()
         df_w['days_ago'] = (dt - df_w['enddate']).dt.days
         df_w = df_w[(df_w['days_ago'] >= 0) & (df_w['days_ago'] <= window)]
-        if len(df_w) < 2:
+        if len(df_w) < 8:
             continue
         df_w['recency_w'] = np.exp(-df_w['days_ago'] * np.log(2) / half_life)
         df_w['w'] = df_w['recency_w'] * df_w['grade_w']
@@ -181,19 +186,19 @@ st.divider()
 # ── GCB TRACKER: ALL POLLS ────────────────────────────────────────────────────
 st.subheader("Generic Congressional Ballot — All Polls")
 
-gcb_polls = load_gcb_polls()
+gcb_polls_all, gcb_polls_scatter = load_gcb_polls()
 tracker_df = pd.read_csv('data/gcb_national.csv', parse_dates=['date'])
 
 election_day = datetime(2026, 11, 3)
 
-if gcb_polls is not None and len(gcb_polls) > 0:
-    # Individual polls scatter
+if gcb_polls_scatter is not None and len(gcb_polls_scatter) > 0:
+    # Individual polls scatter — 2026 cycle only
     poll_chart = (
-        alt.Chart(gcb_polls)
+        alt.Chart(gcb_polls_scatter)
         .mark_circle(size=45, opacity=0.55)
         .encode(
             x=alt.X('enddate:T', title='Poll End Date',
-                    scale=alt.Scale(domain=['2025-11-01', '2026-11-03'])),
+                    scale=alt.Scale(domain=['2026-01-01', '2026-11-03'])),
             y=alt.Y('adjusted_net:Q', title='D Net Margin (pp)',
                     axis=alt.Axis(format='+d')),
             color=alt.condition(
@@ -212,8 +217,8 @@ if gcb_polls is not None and len(gcb_polls) > 0:
 else:
     poll_chart = alt.Chart(pd.DataFrame({'enddate': [], 'adjusted_net': []})).mark_circle()
 
-# Continuous trend line computed from all polls
-trend_df = compute_gcb_trend(gcb_polls)
+# Continuous trend line — uses full history so early window has enough polls
+trend_df = compute_gcb_trend(gcb_polls_all)
 if len(trend_df) > 0:
     trend_line = (
         alt.Chart(trend_df)

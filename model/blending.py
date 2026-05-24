@@ -14,8 +14,12 @@ def load_config(path='config.yaml'):
 
 def compute_env_weight(state_abbr, n_polls, days_remaining, config):
     """
-    env_weight = base × time_factor × poll_factor
+    env_weight = base × time_factor  (time-only — poll count does NOT affect weight)
     poll_weight = 1 - env_weight
+
+    All races use the same env/poll split at the same point in time, regardless
+    of how many polls have been conducted. The transition from environment-dominant
+    to poll-dominant is purely a function of how close we are to election day.
 
     Returns (env_weight, poll_weight) both in [0, 1]
     """
@@ -30,18 +34,14 @@ def compute_env_weight(state_abbr, n_polls, days_remaining, config):
         base = blend_cfg['base_env_weight']
 
     time_decay_power = blend_cfg['time_decay_power']
-    poll_threshold   = blend_cfg['poll_threshold']
 
     # Time decay: (days_remaining / 193)^power
     # Clamp days_remaining to [0, 365]
     days_remaining = max(0, min(days_remaining, 365))
     time_factor = (days_remaining / 193.0) ** time_decay_power
 
-    # Poll count decay: 1 / (1 + n_polls / threshold)
-    poll_factor = 1.0 / (1.0 + n_polls / poll_threshold)
-
-    env_weight  = base * time_factor * poll_factor
-    env_weight  = max(0.0, min(1.0, env_weight))  # clamp to [0,1]
+    env_weight  = base * time_factor
+    env_weight  = max(0.0, min(1.0, env_weight))
     poll_weight = 1.0 - env_weight
 
     return env_weight, poll_weight
