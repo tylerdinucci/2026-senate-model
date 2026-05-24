@@ -48,3 +48,10 @@ DFP051826_01,Data for Progress,2.0,2026-05-15,2026-05-18,1149,white_college,gcb_
 DFP051826_02,Data for Progress,2.0,2026-05-15,2026-05-18,1149,hispanic,gcb_d_share,0.6837,Two-party D/(D+R). 67D/31R Latino crosstab. DFP May 2026 Omnibus Q3.
 DFP051826_03,Data for Progress,2.0,2026-05-15,2026-05-18,1149,black,gcb_d_share,0.8333,Two-party D/(D+R). 80D/16R Black or African American crosstab. DFP May 2026 Omnibus Q3.
 DFP051826_04,Data for Progress,2.0,2026-05-15,2026-05-18,1149,total,gcb_d_share,0.5426,Two-party D/(D+R). 51D/43R topline. LV screen + recalled vote weighted. DFP May 2026 Omnibus Q3.
+YG051826_00,YouGov,2.7,2026-05-15,2026-05-18,1549,white_nc,gcb_d_share,0.5211,No degree all-race proxy (37D/34R). Adult citizens. Economist/YouGov May 2026 table 37.
+YG051826_01,YouGov,2.7,2026-05-15,2026-05-18,1549,white_college,gcb_d_share,0.5542,College grad all-race proxy (46D/37R). Adult citizens. Economist/YouGov May 2026 table 37.
+YG051826_02,YouGov,2.7,2026-05-15,2026-05-18,1549,black,gcb_d_share,0.9189,Two-party D/(D+R). 68D/6R. Adult citizens. N=190. Economist/YouGov May 2026 table 37.
+YG051826_03,YouGov,2.7,2026-05-15,2026-05-18,1549,hispanic,gcb_d_share,0.5970,Two-party D/(D+R). 40D/27R. Adult citizens. N=238. Economist/YouGov May 2026 table 37.
+YG051826_04,YouGov,2.7,2026-05-15,2026-05-18,1549,youth_18_29,gcb_d_share,0.6667,Two-party D/(D+R). 38D/19R. Adult citizens. 18-29 exact match. N=357. Economist/YouGov May 2026 table 37.
+YG051826_05,YouGov,2.7,2026-05-15,2026-05-18,1549,seniors_65p,gcb_d_share,0.4944,Two-party D/(D+R). 44D/45R. Adult citizens. 65+ exact match. N=313. Economist/YouGov May 2026 table 37.
+YG051826_06,YouGov,2.7,2026-05-15,2026-05-18,1549,total,gcb_d_share,0.5333,Two-party D/(D+R). 40D/35R. Adult citizens. Economist/YouGov May 2026 table 37.
