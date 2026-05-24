@@ -55,3 +55,6 @@ YG051826_03,YouGov,2.7,2026-05-15,2026-05-18,1549,hispanic,gcb_d_share,0.5970,Tw
 YG051826_04,YouGov,2.7,2026-05-15,2026-05-18,1549,youth_18_29,gcb_d_share,0.6667,Two-party D/(D+R). 38D/19R. Adult citizens. 18-29 exact match. N=357. Economist/YouGov May 2026 table 37.
 YG051826_05,YouGov,2.7,2026-05-15,2026-05-18,1549,seniors_65p,gcb_d_share,0.4944,Two-party D/(D+R). 44D/45R. Adult citizens. 65+ exact match. N=313. Economist/YouGov May 2026 table 37.
 YG051826_06,YouGov,2.7,2026-05-15,2026-05-18,1549,total,gcb_d_share,0.5333,Two-party D/(D+R). 40D/35R. Adult citizens. Economist/YouGov May 2026 table 37.
+MA051826_00,McLaughlin & Associates,1.5,2026-05-12,2026-05-18,1000,total,gcb_d_share,0.5227,Two-party D/(D+R). 46D/42R. GEV screen. McLaughlin National May 2026.
+MA051826_01,McLaughlin & Associates,1.5,2026-05-12,2026-05-18,1000,black,gcb_d_share,0.8041,Two-party D/(D+R). 78D/19R African-American. McLaughlin National May 2026.
+MA051826_02,McLaughlin & Associates,1.5,2026-05-12,2026-05-18,1000,hispanic,gcb_d_share,0.5341,Two-party D/(D+R). 47D/41R Hispanic. McLaughlin National May 2026.
